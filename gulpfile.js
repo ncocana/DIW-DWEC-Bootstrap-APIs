@@ -52,8 +52,7 @@ function concatjs() {
             .pipe(dest('./dist/js/'));
 }
 
-// 7. Crea una tarea "kittens" que ejecute todas las tareas (excepto los watchers);
-// es decir, ejecutando la tarea "kittens" debería dejarse preparado el proyecto para subir a producción.
+// TAREAS
 
 exports.scss = scss;
 exports.scss_watch = scss_watch;

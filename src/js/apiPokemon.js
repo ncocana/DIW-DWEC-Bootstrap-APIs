@@ -4,7 +4,8 @@
 */
 
 const DB_NAME = "pokemons";
-const DB_TABLE = "pokemons";
+const DB_TABLE_POKEMONS = "pokemons";
+const DB_TABLE_FAV_POKEMONS = "fav_pokemons"
 const API_FETCH_LINK = "https://pokeapi.co/api/v2/";
 
 async function getPokemon(parameter) {
@@ -89,8 +90,8 @@ async function addPokemonUntilNoMore(database) {
             break;
         }
 
-        const transaction = database.transaction([DB_TABLE], "readwrite");
-        const table = transaction.objectStore(DB_TABLE);
+        const transaction = database.transaction([DB_TABLE_POKEMONS], "readwrite");
+        const table = transaction.objectStore(DB_TABLE_POKEMONS);
 
         table.add(dataAddPokemon(pokemonObject));
 
@@ -107,8 +108,13 @@ async function addPokemonUntilNoMore(database) {
         const database = ev.target.result;
 
         // Create an object store if it doesn't exist
-        if (!database.objectStoreNames.contains(DB_TABLE)) {
-            database.createObjectStore(DB_TABLE, { autoIncrement: true });
+        if (!database.objectStoreNames.contains(DB_TABLE_POKEMONS)) {
+            let store = database.createObjectStore(DB_TABLE_POKEMONS, { autoIncrement: true });
+            store.createIndex('Name', 'name', {unique: true});
+        }
+        if (!database.objectStoreNames.contains(DB_TABLE_FAV_POKEMONS)) {
+            let store = database.createObjectStore(DB_TABLE_FAV_POKEMONS, { keyPath: 'data.name' });
+            store.createIndex('Name', 'data.name', {unique: true});
         }
         
         // Open the database and start fetching and adding Pokemon

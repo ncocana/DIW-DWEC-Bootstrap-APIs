@@ -1,6 +1,6 @@
 /*
     Create IndexedDB database, fetch the data from the API, and insert it.
-    Total of Pokemon inserted (as of 26/01/2024): 1026.
+    Total of Pokemon inserted (as of 26/01/2024): 1025.
 */
 
 const DB_NAME = "pokemons";

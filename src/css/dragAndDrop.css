@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #6b6b69;
+  color: white;
+}
+
+#puzzle div {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border: 1px dashed gray;
+  display: inline-block;
+  margin: 0;
+}
+
+#puzzle {
+  width: 618px;
+  height: 618px;
+  background: black;
+  border: 5px solid black;
+  margin: auto;
+}
+
+/* #images {
+  width: 100%;
+} */
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+img[class^="drag"] {
+  height: 200px;
+  width: 200px;
+
+  display: inline-block;
+}
+
+#puzzle #img-completed {
+    width: 100%;
+    height: 100%;
+}

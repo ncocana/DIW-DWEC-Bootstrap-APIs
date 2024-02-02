@@ -57,7 +57,7 @@ function checkPuzzle() {
     });
 
     if (correct) {
-        document.getElementById("completion-message").innerHTML = "<p id='completion-message' class='alert alert-success' role='alert'>Congratulations! You've completed the puzzle!</p>";
+        document.getElementById("completion-message").innerHTML = "<p>Congratulations! You've completed the puzzle!</p>";
         document.getElementById("puzzle").innerHTML = "<img id='img-completed' alt='img-completed' src='./assets/original/" + selectedPuzzle + ".jpg'>"
     }
 }

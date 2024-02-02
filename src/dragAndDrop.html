@@ -6,49 +6,50 @@
         <link rel="stylesheet" type="text/css" href="./css/dragAndDrop.css" />
         <script src='./js/dragAndDrop.js'></script>
         <title>Drag and drop</title>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
     </head>
     <body>
         <div>
             <label for="puzzle-select">Select Puzzle:</label>
-            <select id="puzzle-select" onchange="changePuzzle()">
-                <option value="img1">Image 1</option>
-                <option value="img2">Image 2</option>
-                <option value="img3">Image 3</option>
-                <option value="img4">Image 4</option>
+            <select id="puzzle-select" onchange="restartPuzzle()">
+                <option value="img1">Puzzle 1</option>
+                <option value="img2">Puzzle 2</option>
+                <option value="img3">Puzzle 3</option>
+                <option value="img4">Puzzle 4</option>
             </select>
         </div>
         
-        <p id="completion-message" class="alert alert-success" role="alert"></p>
+        <div id="completion-message"></div>
 
-        <div id="images">
-            <img id="drag1" alt="drag1" src="./assets/splitted/img1/00.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag4" alt="drag4" src="./assets/splitted/img1/01.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag7" alt="drag7" src="./assets/splitted/img1/02.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag2" alt="drag2" src="./assets/splitted/img1/10.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag5" alt="drag5" src="./assets/splitted/img1/11.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag8" alt="drag8" src="./assets/splitted/img1/12.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag3" alt="drag3" src="./assets/splitted/img1/20.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag6" alt="drag6" src="./assets/splitted/img1/21.jpg" draggable="true" ondragstart="drag(event)">
-            <img id="drag9" alt="drag9" src="./assets/splitted/img1/22.jpg" draggable="true" ondragstart="drag(event)">
+        <div id="game">
+            <div id="images">
+                <img id="drag1" alt="drag1" src="./assets/splitted/img1/00.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag4" alt="drag4" src="./assets/splitted/img1/01.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag7" alt="drag7" src="./assets/splitted/img1/02.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag2" alt="drag2" src="./assets/splitted/img1/10.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag5" alt="drag5" src="./assets/splitted/img1/11.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag8" alt="drag8" src="./assets/splitted/img1/12.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag3" alt="drag3" src="./assets/splitted/img1/20.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag6" alt="drag6" src="./assets/splitted/img1/21.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag9" alt="drag9" src="./assets/splitted/img1/22.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <div id="puzzle">
+                <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
         </div>
 
-        <div id="puzzle">
-            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="buttons">
+            <button type="button" id="restartPuzzleButton" name="restartPuzzle" onclick="restartPuzzle()">Reiniciar Puzzle</button>
         </div>
-
-        <!-- <map name="image-map">
-            <area target="" id="galicia" alt="galicia" title="galicia" href="" coords="220,11,441,247" shape="rect" ondrop="drop(event, 'galicia')" ondragover="allowDrop(event)" data-left="231px" data-top="22px">
-            <area target="" id="catalunya" alt="catalunya" title="catalunya" href="" coords="1019,117,1290,391" shape="rect" ondrop="drop(event, 'catalunya')" ondragover="allowDrop(event)" data-left="1028px" data-top="128px">
-            <area target="" id="castellalamanxa" alt="castellalamanxa" title="castellalamanxa" href="" coords="551,666,934,287" shape="rect" ondrop="drop(event, 'castellalamanxa')" ondragover="allowDrop(event)" data-left="558px" data-top="302px">
-            <area target="" id="andalucia" alt="andalucia" title="andalucia" href="" coords="877,877,372,580" shape="rect" ondrop="drop(event, 'andalucia')" ondragover="allowDrop(event)" data-left="380px" data-top="588px">
-        </map> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 </body>
 </html>

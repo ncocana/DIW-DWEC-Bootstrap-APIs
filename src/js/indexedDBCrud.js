@@ -1,5 +1,6 @@
 const INPUT_POKEMON_NAME = "pokemonName";
 const INPUT_POKEMON_STATUS = "pokemonStatus";
+const INPUT_SUBSCRIBER_EMAIL = "subscriberEmail";
 
 const db_openRequest = indexedDB.open(DB_NAME, 1);
 
@@ -163,6 +164,41 @@ async function deleteFavPokemon() {
 
         // Delete an existing record
         objectStore.delete(valuePokemonName);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+function insertSubscriber() {
+    let valueEmail = document.getElementById(INPUT_SUBSCRIBER_EMAIL).value;
+
+    try {
+        if (valueEmail) {
+            const transaction = db_openRequest.result.transaction(DB_TABLE_SUBSCRIBERS, 'readwrite');
+            const objectStore = transaction.objectStore(DB_TABLE_SUBSCRIBERS);
+            
+            // Modify the structure of the object to be inserted
+            const subscriber = {
+                email: valueEmail
+            };
+
+            // Add a new record
+            objectStore.add(subscriber);
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+function deleteSubscriber() {
+    let valueEmail = document.getElementById(INPUT_SUBSCRIBER_EMAIL).value;
+
+    try {
+        const transaction = db_openRequest.result.transaction(DB_TABLE_SUBSCRIBERS, 'readwrite');
+        const objectStore = transaction.objectStore(DB_TABLE_SUBSCRIBERS);
+
+        // Delete an existing record
+        objectStore.delete(valueEmail);
     } catch (error) {
         console.error(error.message);
     }

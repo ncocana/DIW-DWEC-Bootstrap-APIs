@@ -5,9 +5,6 @@ setTimeout(function () {
       .then(html => {
         // Insert the fetched HTML content into the document
         document.querySelector("#index-content").innerHTML = html;
-        
-        // Hide the spinner
-        document.querySelector(".spinner-border").style.display = "none";
       })
       .catch(error => {
         console.error('Error fetching HTML:', error);
@@ -15,34 +12,34 @@ setTimeout(function () {
 }, 1000);
 
 // Modals
-        function actualizarInfoModal(pokemon) {
-            let tipo = "";
-            let habilidades = "";
+function actualizarInfoModal(pokemon) {
+    let tipo = "";
+    let habilidades = "";
 
-            switch (pokemon) {
-                case "kyurem":
-                    tipo = "Dragon, Hielo";
-                    habilidades = "Presión, Turbo Llama, Terravoltaje";
-                    break;
-                case "mewtwo":
-                    tipo = "Psíquico";
-                    habilidades = "Presión"
-                    break;
-                case "lucario":
-                    tipo = "Lucha, Acero";
-                    habilidades = "Impasible, Fuerza Mental, Justiciero";
-                    break;
-                case "rayquaza":
-                    tipo = "Dragón, Volador";
-                    habilidades = "Esclusa de aire, Levitación";
-                    break;
-                default:
-                    break;
-            }
+    switch (pokemon) {
+        case "kyurem":
+            tipo = "Dragon, Hielo";
+            habilidades = "Presión, Turbo Llama, Terravoltaje";
+            break;
+        case "mewtwo":
+            tipo = "Psíquico";
+            habilidades = "Presión"
+            break;
+        case "lucario":
+            tipo = "Lucha, Acero";
+            habilidades = "Impasible, Fuerza Mental, Justiciero";
+            break;
+        case "rayquaza":
+            tipo = "Dragón, Volador";
+            habilidades = "Esclusa de aire, Levitación";
+            break;
+        default:
+            break;
+    }
 
-            document.getElementById("tipo").innerText = tipo;
-            document.getElementById("habilidades").innerText = habilidades;
-        }
+    document.getElementById("tipo").innerText = tipo;
+    document.getElementById("habilidades").innerText = habilidades;
+}
 // Tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

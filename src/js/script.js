@@ -11,35 +11,43 @@ setTimeout(function () {
       });
 }, 1000);
 
-// Modals
-function actualizarInfoModal(pokemon) {
-    let tipo = "";
-    let habilidades = "";
-
-    switch (pokemon) {
-        case "kyurem":
-            tipo = "Dragon, Hielo";
-            habilidades = "Presión, Turbo Llama, Terravoltaje";
-            break;
-        case "mewtwo":
-            tipo = "Psíquico";
-            habilidades = "Presión"
-            break;
-        case "lucario":
-            tipo = "Lucha, Acero";
-            habilidades = "Impasible, Fuerza Mental, Justiciero";
-            break;
-        case "rayquaza":
-            tipo = "Dragón, Volador";
-            habilidades = "Esclusa de aire, Levitación";
-            break;
-        default:
-            break;
-    }
-
-    document.getElementById("tipo").innerText = tipo;
-    document.getElementById("habilidades").innerText = habilidades;
+// Function to capitalize the first letter of each word
+function capitalizeFirstLetter(str) {
+    return str.replace(/\b\w/g, function (char) {
+        return char.toUpperCase();
+    });
 }
+
+// Modals
+async function actualizarInfoModal(pokemon) {
+    try {
+        // Call getOnePokemon function to retrieve Pokemon data
+        const pokemonData = await getOnePokemon(pokemon);
+
+        // Extract necessary information from the retrieved data
+        let tipo = "";
+        let habilidades = "";
+
+        if (pokemonData) {
+            // Extract type and capitalize first letter of each word
+            tipo = pokemonData.types.map(element => capitalizeFirstLetter(element.type.name)).join(", ");
+
+            // Extract abilities and capitalize first letter of each word
+            habilidades = pokemonData.abilities.map(element => capitalizeFirstLetter(element.ability.name)).join(", ");
+        } else {
+            // If Pokemon data is not found, display a default message or handle it accordingly
+            tipo = "Unknown";
+            habilidades = "Unknown";
+        }
+
+        // Update modal with extracted information
+        document.getElementById("tipo").innerText = tipo;
+        document.getElementById("habilidades").innerText = habilidades;
+    } catch (error) {
+        console.error("Error updating modal:", error);
+    }
+}
+
 // Tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

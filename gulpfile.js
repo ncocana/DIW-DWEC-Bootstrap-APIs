@@ -3,7 +3,7 @@ const CLEAN_CSS = require('gulp-clean-css');
 const CLEAN_JS = require('gulp-uglify');
 const SCSS = require('gulp-sass')(require('sass'));
 const CONCAT_CSS = require('gulp-concat-css');
-const CONCAT_JS = require('gulp-concat-js');
+const CONCAT_JS = require('gulp-concat');
 
 // Compilar los archivos .scss de la carpeta "scss" y meterlos en una carpeta llamada "css".
 function scss() {
@@ -43,13 +43,13 @@ function concatcss() {
 // Concatena todos los archivos de la carpeta "dist/js" en ORDEN
 // y crea un archivo "all.js" en "dist/js/all.js". Prerrequisito: "minimizajs".
 function concatjs() {
-    return src("./dist/js/*.js")
-            .pipe(CONCAT_JS({
-                "target": "all.js",
-                "entry": "./dist/js/application.js"
-            }))
-            .pipe(CLEAN_JS())
-            .pipe(dest('./dist/js/'));
+    return src([
+        "./dist/js/apiPokemon.js",
+        "./dist/js/indexedDbCrud.js",
+        "./dist/js/dragAndDrop.js"
+    ])
+    .pipe(CONCAT_JS('all.js')) // Concatenate files into all.js
+    .pipe(dest('./dist/js/'));
 }
 
 // Mover imagenes y archivos HTML a "dist".

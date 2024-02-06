@@ -9,25 +9,25 @@ setTimeout(function () {
       <ul class="nav navbar-nav">
         <!-- Logo -->
         <li class="navbar-brand">
-          <a class="nav-link" href="#"><img src="../src/imgPokemon/logo_pokemon.png" alt="Logo" height="40px"></a>
+          <a class="nav-link" href="#"><img src="./assets/imgPokemon/logo_pokemon.png" alt="Logo" height="40px"></a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto me-3">
         <!-- Primera IMG -->
         <li class="nav-item">
-          <a class="nav-link" href="../src/index.html"><img src="../src/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">Inicio</a>
+          <a class="nav-link" href="./index.html"><img src="./assets/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">Inicio</a>
         </li>
         <!-- Segunda IMG -->
         <li class="nav-item">
-          <a class="nav-link" href="../src/pokedex.html"><img src="../src/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">Pokédex</a>
+          <a class="nav-link" href="./pokedex.html"><img src="./assets/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">Pokédex</a>
         </li>
         <!-- Tercera IMG -->
         <li class="nav-item">
-          <a class="nav-link" href="../src/videojuegos.html"><img src="../src/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">Videojuegos</a>
+          <a class="nav-link" href="./videojuegos.html"><img src="./assets/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">Videojuegos</a>
         </li>
         <!-- Cuarta IMG -->
         <li class="nav-item">
-          <a class="nav-link" href="../src/noticias.html"><img src="../src/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">Noticias</a>
+          <a class="nav-link" href="./noticias.html"><img src="./assets/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">Noticias</a>
         </li>
       </ul>
       <!-- Busquedad -->
@@ -42,13 +42,13 @@ setTimeout(function () {
 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner" id="carousel-size">
     <div class="carousel-item active">
-      <img src="../src/imgPokemon/carousel1.jpg" class="d-block w-100" alt="Mewtwo" height="500px">
+      <img src="./assets/imgPokemon/carousel1.jpg" class="d-block w-100" alt="Mewtwo" height="500px">
   </div>
   <div class="carousel-item">
-      <img src="../src/imgPokemon/carousel2.jpg" class="d-block w-100" alt="Kyurem" height="500px">
+      <img src="./assets/imgPokemon/carousel2.jpg" class="d-block w-100" alt="Kyurem" height="500px">
   </div>
   <div class="carousel-item">
-      <img src="../src/imgPokemon/carousel3.jpg" class="d-block w-100" alt="Lucario" height="500px">
+      <img src="./assets/imgPokemon/carousel3.jpg" class="d-block w-100" alt="Lucario" height="500px">
   </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
@@ -68,7 +68,7 @@ setTimeout(function () {
     <div class="row" id="JDS">
       <div class="col-3">
         <div class="card">
-          <img src="../src/imgPokemon/kyurem.png" alt="Kyurem" class="card-img-top">
+          <img src="./assets/imgPokemon/kyurem.png" alt="Kyurem" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Kyurem</h5>
             <p class="card-text">Pokémon legendario que aguarda al héroe que compense el vacío de su cuerpo de hielo con verdad e ideales. Produce en su interior una intensa energía gélida, y cualquier fuga hace que su cuerpo se congele. Pokémon legendario que aguarda al héroe que compense el vacío de su cuerpo de hielo con verdad e ideales.</p>
@@ -79,7 +79,7 @@ setTimeout(function () {
       <!-- Card 2 -->
       <div class="col-3">
         <div class="card">
-        <img src="../src/imgPokemon/mewtwo.png" alt="Mewtwo" class="card-img-top">
+        <img src="./assets/imgPokemon/mewtwo.png" alt="Mewtwo" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">Mewtwo</h5>
           <p class="card-text">Mewtwo es sumamente hábil con sus poderes psíquicos: puede volar mediante la levitación, comunicarse telepáticamente, reflejar ataques como hiperrayo, bloquear las habilidades especiales de los demás Pokémon y tomar el mando de la mente de otra criatura viva mediante hipnosis.</p>
@@ -90,7 +90,7 @@ setTimeout(function () {
       <!-- Card 3 -->
       <div class="col-3">
         <div class="card">
-        <img src="../src/imgPokemon/lucario.png" alt="Lucario" class="card-img-top">
+        <img src="./assets/imgPokemon/lucario.png" alt="Lucario" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">Lucario</h5>
           <p class="card-text">Lucario es un Pokémon de tipo lucha/acero introducido en la cuarta generación. Es la evolución de Riolu y puede megaevolucionar en Mega-Lucario.</p>
@@ -101,7 +101,7 @@ setTimeout(function () {
       <!-- Card 4 -->
       <div class="col-3">
         <div class="card">
-          <img src="../src/imgPokemon/rayquaza.png" alt="Rayquaza" class="card-img-top">
+          <img src="./assets/imgPokemon/rayquaza.png" alt="Rayquaza" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Rayquaza</h5>
             <p class="card-text">Rayquaza es un Pokémon legendario de tipo dragón/volador introducido en la tercera generación. Es la mascota de Pokémon Esmeralda. Forma parte del trío creador junto con Groudon y Kyogre. A partir de Pokémon Rubí Omega y Pokémon Zafiro Alfa puede megaevolucionar en Mega-Rayquaza.</p>
@@ -114,7 +114,7 @@ setTimeout(function () {
     </div>
     <br>
     <div class="container">
-      <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Mira todo los pokemons" style="margin-left: auto; display: block; cursor:pointer;" class="btn btn-danger"><a href="../src/pokedex.html" style="text-decoration:none;color:inherit;">Ir a la pokedex</a></button>
+      <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Mira todo los pokemons" style="margin-left: auto; display: block; cursor:pointer;" class="btn btn-danger"><a href="./pokedex.html" style="text-decoration:none;color:inherit;">Ir a la pokedex</a></button>
     </div>
     <br>
       <!-- Modal -->
@@ -195,11 +195,11 @@ setTimeout(function () {
 
       <ul class="list-unstyled">
         <li>
-          <a href="facebook.com" style="margin-right: 10px;"><img src="../src/imgPokemon/facebook.svg" alt="Facebook" height="30px"></a>
-          <a href="instagram.com" style="margin-right: 10px;"><img src="../src/imgPokemon/instagram.svg" alt="Instagram" height="30px"></a>
-          <a href="twitter.com" style="margin-right: 10px;"><img src="../src/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px"></a>
-          <a href="twitter.com" style="margin-right: 10px;"><img src="../src/imgPokemon/youtube.svg" alt="Youtube" height="30px"></a>
-          <a href="tiktok.com"><img src="../src/imgPokemon/tiktok.svg" alt="TikTok"></a>
+          <a href="facebook.com" style="margin-right: 10px;"><img src="./assets/imgPokemon/facebook.svg" alt="Facebook" height="30px"></a>
+          <a href="instagram.com" style="margin-right: 10px;"><img src="./assets/imgPokemon/instagram.svg" alt="Instagram" height="30px"></a>
+          <a href="twitter.com" style="margin-right: 10px;"><img src="./assets/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px"></a>
+          <a href="twitter.com" style="margin-right: 10px;"><img src="./assets/imgPokemon/youtube.svg" alt="Youtube" height="30px"></a>
+          <a href="tiktok.com"><img src="./assets/imgPokemon/tiktok.svg" alt="TikTok"></a>
         </li>
       </ul>
     </div>

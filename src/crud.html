@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD IndexedDB</title>
+</head>
+<body>
+    <input type="text" id="pokemonName" name="name">
+    <button onclick="insertFavPokemon()">Insertar pokemon</button>
+    <button onclick="deleteFavPokemon()">Borrar pokemon</button>
+    <br>
+    <input type="text" id="pokemonStatus" name="status">
+    <button onclick="updateFavPokemon()">Modificar status del pokemon</button>´
+    <br>
+    <button onclick="getAllPokemon()">Mostrar todos los pokemon</button>
+    <button onclick="getOnePokemon()">Mostrar un pokemon</button>
+    <button onclick="getAllFavPokemon()">Mostrar todos tus pokemon favoritos</button>
+    <button onclick="getOneFavPokemon()">Mostrar un pokemon favorito</button>
+    <script src="./js/apiPokemon.js"></script>
+    <script src="./js/indexedDBCrud.js"></script>
+    <script src="./js/all.js"></script>
+
+    <br><br>
+    <input type="text" id="subscriberEmail" name="email">
+    <button onclick="insertSubscriber()">Suscribirse</button>
+    <button onclick="deleteSubscriber()">Cancelar suscripción</button>
+</body>
+</html>

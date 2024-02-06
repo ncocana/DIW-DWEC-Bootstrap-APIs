@@ -1,37 +1,37 @@
-const { series, src, dest, watch } = require('gulp');
+const { series, parallel, src, dest, watch } = require('gulp');
 const CLEAN_CSS = require('gulp-clean-css');
 const CLEAN_JS = require('gulp-uglify');
 const SCSS = require('gulp-sass')(require('sass'));
 const CONCAT_CSS = require('gulp-concat-css');
-const CONCAT_JS = require('gulp-concat-js');
+const CONCAT_JS = require('gulp-concat');
 
-// 1. Compilar los archivos .scss de la carpeta "scss" y meterlos en una carpeta llamada "css".
+// Compilar los archivos .scss de la carpeta "scss" y meterlos en una carpeta llamada "css".
 function scss() {
     return src('./src/scss/*.scss')
             .pipe(SCSS())
             .pipe(dest('./src/css/'));
 }
 
-// 2. Crea un watcher que vigile que cuando hay un cambio en un archivo .scss de todo el proyecto se llame a la tarea "scss".
+// Crea un watcher que vigile que cuando hay un cambio en un archivo .scss de todo el proyecto se llame a la tarea "scss".
 function scss_watch() {
     watch('./src/scss/partials/*.scss', scss) && watch('./src/scss/*.scss', scss);
 }
 
-// 3. Minimiza los archivos de la carpeta .css y déjalos en la carpeta "dist/css". Prerrequisito: tarea "scss".
+// Minimiza los archivos de la carpeta .css y déjalos en la carpeta "dist/css". Prerrequisito: tarea "scss".
 function minimizacss() {
     return src("./src/css/*.css")
             .pipe(CLEAN_CSS())
             .pipe(dest('./dist/css'));
 }
 
-// 4. Minimiza los archivos de la carpeta "js" y déjalos en "dist/js".
+// Minimiza los archivos de la carpeta "js" y déjalos en "dist/js".
 function minimizajs() {
     return src("./src/js/*.js")
             .pipe(CLEAN_JS())
             .pipe(dest('./dist/js/'));
 }
 
-// 5. Concatena todos los archivos de la carpeta "dist/css" en ORDEN
+// Concatena todos los archivos de la carpeta "dist/css" en ORDEN
 // y crea un archivo "all.css" en "dist/css/all.css". Prerrequisito: "minimizacss".
 function concatcss() {
     return src("./dist/css/*.css")
@@ -40,17 +40,23 @@ function concatcss() {
             .pipe(dest('./dist/css/'));
 }
 
-// 6. Concatena todos los archivos de la carpeta "dist/js" en ORDEN
+// Concatena todos los archivos de la carpeta "dist/js" en ORDEN
 // y crea un archivo "all.js" en "dist/js/all.js". Prerrequisito: "minimizajs".
 function concatjs() {
-    return src("./dist/js/*.js")
-            .pipe(CONCAT_JS({
-                "target": "all.js",
-                "entry": "./dist/js/application.js"
-            }))
-            .pipe(CLEAN_JS())
-            .pipe(dest('./dist/js/'));
+    return src([
+        "./dist/js/apiPokemon.js",
+        "./dist/js/indexedDbCrud.js",
+        "./dist/js/dragAndDrop.js"
+    ])
+    .pipe(CONCAT_JS('all.js')) // Concatenate files into all.js
+    .pipe(dest('./dist/js/'));
 }
+
+// Mover imagenes y archivos HTML a "dist".
+function moveFiles() {
+    return src(['./src/**/*.jpg', './src/**/*.html', '!./src/assets/original/**'])
+            .pipe(dest('dist'));
+};
 
 // TAREAS
 
@@ -60,4 +66,5 @@ exports.cleancss = minimizacss;
 exports.cleanjs = minimizajs;
 exports.concatcss = concatcss;
 exports.concatjs = concatjs;
-exports.build = series(scss, minimizacss, minimizajs, concatcss, concatjs);
+exports.moveFiles = moveFiles;
+exports.build = parallel(series(scss, minimizacss, concatcss), series(minimizajs, concatjs), moveFiles);

@@ -44,7 +44,7 @@ function concatcss() {
 // y crea un archivo "all.js" en "dist/js/all.js". Prerrequisito: "minimizajs".
 function concatjs() {
     return src([
-        "./dist/js/apiPokemon.js",
+        "./dist/js/initIndexedDB.js",
         "./dist/js/indexedDbCrud.js",
         "./dist/js/dragAndDrop.js"
     ])

@@ -54,7 +54,16 @@ function concatjs() {
 
 // Mover imagenes y archivos HTML a "dist".
 function moveFiles() {
-    return src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.webp', './src/**/*.svg', './src/**/*.html', '!./src/assets/original/**', '!./src/css/bootstrap*/**'])
+    return src([
+                './src/**/*.jpg',
+                './src/**/*.png',
+                './src/**/*.webp',
+                './src/**/*.svg',
+                './src/**/*.avif',
+                './src/**/*.html',
+                '!./src/assets/original/**',
+                '!./src/css/bootstrap*/**'
+            ])
             .pipe(dest('dist'));
 };
 

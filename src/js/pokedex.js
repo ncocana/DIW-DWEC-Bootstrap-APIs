@@ -5,6 +5,7 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
+const pokeButton = document.querySelector('[data-poke-button]');
 
 const typeColors = {
     electric: '#FFEA70',
@@ -51,6 +52,7 @@ const renderPokemonData = data => {
     setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);
+    renderButton();
 }
 
 
@@ -85,6 +87,16 @@ const renderPokemonStats = stats => {
     });
 }
 
+const renderButton = () => {
+    pokeButton.innerHTML = '';
+    const buttonElement = document.createElement("button");
+
+    buttonElement.onclick = insertFavPokemon;
+    buttonElement.innerHTML = "Add to favorites";
+
+    pokeButton.appendChild(buttonElement);
+}
+
 const renderNotFound = () => {
     pokeName.textContent = 'Not found. Try again later!';
     pokeImg.setAttribute('src', './assets/imgPokemon/poke-shadow.png');
@@ -92,4 +104,5 @@ const renderNotFound = () => {
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
+    pokeButton.innerHTML = '';
 }

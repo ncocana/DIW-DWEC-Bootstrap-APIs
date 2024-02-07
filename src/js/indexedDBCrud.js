@@ -1,5 +1,5 @@
-const INPUT_POKEMON_NAME = "pokemonName";
-const INPUT_POKEMON_STATUS = "pokemonStatus";
+const INPUT_POKEMON_NAME = "inputPokemonName";
+// const INPUT_POKEMON_STATUS = "inputPokemonStatus";
 const INPUT_SUBSCRIBER_EMAIL = "subscriberEmail";
 
 const db_openRequest = indexedDB.open(DB_NAME, 1);
@@ -110,7 +110,7 @@ async function getOneFavPokemon(name = '') {
 
 async function insertFavPokemon() {
     let valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value;
-    let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+    // let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
 
     try {
         const valueData = await getOnePokemon(valuePokemonName);
@@ -122,11 +122,17 @@ async function insertFavPokemon() {
             // Modify the structure of the object to be inserted
             const favPokemonObject = {
                 data: valueData,
-                status: valuePokemonStatus
+                // status: valuePokemonStatus
             };
 
             // Add a new record
-            objectStore.add(favPokemonObject);
+            const request = objectStore.add(favPokemonObject);
+
+            request.onsuccess = function (ev) {
+                // console.log('Pokemon added successfully!');
+                // Show a message indicating successful addition
+                showMessage('Pokemon added successfully!');
+            };
         }
     } catch (error) {
         console.error(error.message);
@@ -135,20 +141,25 @@ async function insertFavPokemon() {
 
 async function updateFavPokemon() {
     let valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value;
-    let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+    // let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
 
     try {
         const valueData = await getOneFavPokemon(valuePokemonName);
 
         if (valueData) {
             // Modify the data
-            valueData.status = valuePokemonStatus;
+            // valueData.status = valuePokemonStatus;
 
             const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
             const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
             
             // Update an existing record
-            objectStore.put(valueData);
+            const request = objectStore.put(valueData);
+
+            request.onsuccess = function (ev) {
+                // Show a message indicating successful update
+                showMessage('Pokemon updated successfully!');
+            };
         }
     } catch (error) {
         console.error(error.message);
@@ -163,7 +174,12 @@ async function deleteFavPokemon() {
         const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
 
         // Delete an existing record
-        objectStore.delete(valuePokemonName);
+        const request = objectStore.delete(valuePokemonName);
+
+        request.onsuccess = function (ev) {
+            // Show a message indicating successful delete
+            showMessage('Pokemon deleted successfully!');
+        };
     } catch (error) {
         console.error(error.message);
     }
@@ -202,4 +218,8 @@ function deleteSubscriber() {
     } catch (error) {
         console.error(error.message);
     }
+}
+
+function showMessage(message) {
+    alert(message);
 }

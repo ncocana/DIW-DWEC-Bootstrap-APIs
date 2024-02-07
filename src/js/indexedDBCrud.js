@@ -90,7 +90,7 @@ async function getOneFavPokemon(name = '') {
         if (!name) {
             name = document.getElementById(INPUT_POKEMON_NAME).value;
         }
-        const request = objectStore.openCursor(IDBKeyRange.only(name.toLowerCase()));
+        const request = index.openCursor(IDBKeyRange.only(name.toLowerCase()));
 
         request.onsuccess = function (ev) {
             const cursor = ev.target.result;

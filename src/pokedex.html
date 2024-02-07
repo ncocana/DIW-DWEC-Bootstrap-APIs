@@ -7,10 +7,10 @@
     <!-- Link ApiPokemon -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <!-- JavaScript -->
-      <script src="../src/js/pokedex.js" type="text/javascript" defer></script>
-        <!-- Style -->
-        <link rel="stylesheet" href="../src/css/pokedex.css">
-        <script src="../src/js/script.js"></script>
+    <script src="./js/pokedex.js" type="text/javascript" defer></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/pokedex.css">
+    <script src="./js/script.js"></script>
     <!-- Style -->
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/script.js"></script>
@@ -74,15 +74,15 @@
             </div>
         </div>
     </nav>
-      <!-- Pokemon Api -->
-      <form action="" class="d-flex" role="search" onsubmit="searchPokemon(event)" id="formPokeApi">
+    <!-- Pokemon Api -->
+    <form action="" class="d-flex" role="search" onsubmit="searchPokemon(event)" id="formPokeApi">
         <input type="text" name="pokemon" autocomplete="off" placeholder="Introduce el nombre del pokémon" class="form-control me-2" id="inputPokemon">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <div data-poke-card class="poke-card">
         <div data-poke-name>Pokedex</div>
         <div data-poke-img-container class="img-container">
-            <img data-poke-img class="poke-img" src="../src/assets/imgPokemon/poke-shadow.png"/>
+            <img data-poke-img class="poke-img" src="./assets/imgPokemon/poke-shadow.png" alt="shadow pokemon"/>
         </div>
         <div data-poke-id></div>
         <div data-poke-types class="poke-types"></div>

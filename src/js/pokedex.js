@@ -46,7 +46,7 @@ const renderPokemonData = data => {
     const sprite =  data.sprites.front_default;
     const { stats, types } = data;
 
-    pokeName.textContent = data.name;
+    pokeName.textContent = capitalizeFirstLetter(data.name);
     pokeImg.setAttribute('src', sprite);
     pokeId.textContent = `Nº ${data.id}`;
     setCardColor(types);
@@ -68,7 +68,7 @@ const renderPokemonTypes = types => {
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
         typeTextElement.style.color = typeColors[type.type.name];
-        typeTextElement.textContent = type.type.name;
+        typeTextElement.textContent = capitalizeFirstLetter(type.type.name);
         pokeTypes.appendChild(typeTextElement);
     });
 }
@@ -79,7 +79,7 @@ const renderPokemonStats = stats => {
         const statElement = document.createElement("div");
         const statElementName = document.createElement("div");
         const statElementAmount = document.createElement("div");
-        statElementName.textContent = stat.stat.name;
+        statElementName.textContent = capitalizeFirstLetter(stat.stat.name);
         statElementAmount.textContent = stat.base_stat;
         statElement.appendChild(statElementName);
         statElement.appendChild(statElementAmount);

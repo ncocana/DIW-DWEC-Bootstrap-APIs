@@ -1,14 +1,17 @@
+// Spinner of index.html
 setTimeout(function () {
-    // Fetch HTML content from external file
-    fetch('./index-content.html')
-      .then(response => response.text())
-      .then(html => {
-        // Insert the fetched HTML content into the document
-        document.querySelector("#index-content").innerHTML = html;
-      })
-      .catch(error => {
-        console.error('Error fetching HTML:', error);
-      });
+    if (document.querySelector("#index-content")) {
+        // Fetch HTML content from external file
+        fetch('./index-content.html')
+          .then(response => response.text())
+          .then(html => {
+            // Insert the fetched HTML content into the document
+            document.querySelector("#index-content").innerHTML = html;
+          })
+          .catch(error => {
+            console.error('Error fetching HTML:', error);
+          });
+    }
 }, 1000);
 
 // Function to capitalize the first letter of each word

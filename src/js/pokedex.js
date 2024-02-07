@@ -31,8 +31,14 @@ const searchPokemon = async event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
     
-    const pokemonData = await getOnePokemon(value);
-    renderPokemonData(pokemonData);
+    if (value) {
+        const pokemonData = await getOnePokemon(value);
+        if (pokemonData !== null) {
+            renderPokemonData(pokemonData);
+        } else {
+            renderNotFound();
+        }
+    }
 }
 
 const renderPokemonData = data => {
@@ -80,7 +86,7 @@ const renderPokemonStats = stats => {
 }
 
 const renderNotFound = () => {
-    pokeName.textContent = 'No encontrado';
+    pokeName.textContent = 'Not found. Try again later!';
     pokeImg.setAttribute('src', './assets/imgPokemon/poke-shadow.png');
     pokeImg.style.background =  '#fff';
     pokeTypes.innerHTML = '';

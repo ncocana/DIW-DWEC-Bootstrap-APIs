@@ -19,7 +19,7 @@ async function getAllPokemon() {
                 cursor.continue();
             } else {
                 resolve(result);
-                console.log(result);
+                // console.log(result);
             }
         };
 
@@ -44,7 +44,7 @@ async function getOnePokemon(name = '') {
             const cursor = ev.target.result;
             if (cursor) {
                 resolve(cursor.value);
-                console.log(cursor.value);
+                // console.log(cursor.value);
             } else {
                 resolve(null); // Pokemon not found
             }
@@ -71,7 +71,7 @@ async function getAllFavPokemon() {
                 cursor.continue();
             } else {
                 resolve(result);
-                console.log(result);
+                // console.log(result);
             }
         };
 
@@ -96,7 +96,7 @@ async function getOneFavPokemon(name = '') {
             const cursor = ev.target.result;
             if (cursor) {
                 resolve(cursor.value);
-                console.log(cursor.value);
+                // console.log(cursor.value);
             } else {
                 resolve(null); // Pokemon not found
             }

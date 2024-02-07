@@ -44,7 +44,7 @@ function concatcss() {
 // y crea un archivo "all.js" en "dist/js/all.js". Prerrequisito: "minimizajs".
 function concatjs() {
     return src([
-        "./dist/js/apiPokemon.js",
+        "./dist/js/initIndexedDB.js",
         "./dist/js/indexedDbCrud.js",
         "./dist/js/dragAndDrop.js"
     ])
@@ -54,7 +54,16 @@ function concatjs() {
 
 // Mover imagenes y archivos HTML a "dist".
 function moveFiles() {
-    return src(['./src/**/*.jpg', './src/**/*.html', '!./src/assets/original/**'])
+    return src([
+                './src/**/*.jpg',
+                './src/**/*.png',
+                './src/**/*.webp',
+                './src/**/*.svg',
+                './src/**/*.avif',
+                './src/**/*.html',
+                '!./src/assets/original/**',
+                '!./src/css/bootstrap*/**'
+            ])
             .pipe(dest('dist'));
 };
 

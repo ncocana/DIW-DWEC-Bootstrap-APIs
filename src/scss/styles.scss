@@ -1,31 +1,36 @@
-@import "../bootstrap-5.3.2/scss/bootstrap.scss";
-@media (min-width: 768px){
-    .navbar-nav .navbar-center{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-.hotpink{
-    color: rgb(255, 105, 180);
-}
-#loading-spinner{
+@import "../css/bootstrap-5.3.2/scss/bootstrap.scss";
+
+@media (min-width: 768px) {
+  .navbar-nav .navbar-center {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+  }
 }
-#carousel-size{
-    height: 500px;
+
+.hotpink {
+  color: rgb(255, 105, 180);
 }
-body{
-    height: auto;
-    width: 100%;
-    background-color: #262626;
+
+#loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+#carousel-size {
+  height: 500px;
+}
+
+body {
+  height: auto;
+  width: 100%;
+  background-color: #262626;
+}
+
 // Checkout.html
 @media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
-}
+  .h-custom {
+    height: 100vh !important;
+  }
 }

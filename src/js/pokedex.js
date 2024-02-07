@@ -27,13 +27,12 @@ const typeColors = {
 };
 
 
-const searchPokemon = event => {
+const searchPokemon = async event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
-        .then(data => data.json())
-        .then(response => renderPokemonData(response))
-        .catch(err => renderNotFound())
+    
+    const pokemonData = await getOnePokemon(value);
+    renderPokemonData(pokemonData);
 }
 
 const renderPokemonData = data => {
@@ -82,7 +81,7 @@ const renderPokemonStats = stats => {
 
 const renderNotFound = () => {
     pokeName.textContent = 'No encontrado';
-    pokeImg.setAttribute('src', 'poke-shadow.png');
+    pokeImg.setAttribute('src', './assets/imgPokemon/poke-shadow.png');
     pokeImg.style.background =  '#fff';
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';

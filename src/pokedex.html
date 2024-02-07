@@ -159,8 +159,9 @@
                     <h5 class="text-uppercase mb-4">Suscríbase a nuestro boletín de noticias</h5>
 
                     <div class="form-outline form-white mb-4">
-                        <input type="email" id="form5Example2" class="form-control" placeholder="Introduce tu correo electronico" />
-                        <button type="submit" class="btn btn-dark">Suscribirse</button>
+                        <input type="email" id="subscriberEmail" name="email" class="form-control" placeholder="Introduce tu correo electronico" />
+                        <button type="submit" class="btn btn-dark" onclick="insertSubscriber()">Suscribirse</button>
+                        <button type="submit" class="btn btn-dark" onclick="deleteSubscriber()">Cancelar suscripción</button>
                     </div>
                 </div>
             </div>

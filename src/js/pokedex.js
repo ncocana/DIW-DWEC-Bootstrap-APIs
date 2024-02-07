@@ -24,6 +24,7 @@ const typeColors = {
     dragon: '#DA627D',
     steel: '#1D8A99',
     fighting: '#2F2F2F',
+    dark: '#D9D9D9',
     default: '#2A1A1F',
 };
 
@@ -67,7 +68,7 @@ const renderPokemonTypes = types => {
     pokeTypes.innerHTML = '';
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
-        typeTextElement.style.color = typeColors[type.type.name];
+        typeTextElement.style.color = (type.type.name != 'dark' ? typeColors[type.type.name] : typeColors.default);
         typeTextElement.textContent = capitalizeFirstLetter(type.type.name);
         pokeTypes.appendChild(typeTextElement);
     });

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Link ApiPokemon -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <!-- JavaScript -->
@@ -41,28 +44,32 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">
                             <img src="./assets/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">
-                            Inicio
+                            Start
                         </a>
                     </li>
                     <!-- Segunda IMG -->
                     <li class="nav-item">
                         <a class="nav-link" href="./pokedex.html">
                             <img src="./assets/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">
-                            Pokédex
+                            Pokedex
                         </a>
                     </li>
                     <!-- Tercera IMG -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="./videojuegos.html">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
                             <img src="./assets/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">
-                            Videojuegos
+                            Video Games
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="../src/dragAndDrop.html" class="dropdown-item">Puzzle</a>
+                            <a href="../src/videojuegos.html" class="dropdown-item">Video Games</a>
+                        </div>
                     </li>
                     <!-- Cuarta IMG -->
                     <li class="nav-item">
                         <a class="nav-link" href="./noticias.html">
                             <img src="./assets/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">
-                            Noticias
+                            News
                         </a>
                     </li>
                 </ul>
@@ -75,8 +82,8 @@
         </div>
     </nav>
       <!-- Pokemon Api -->
-      <form action="" class="d-flex" role="search" onsubmit="searchPokemon(event)" id="formPokeApi">
-        <input type="text" name="pokemon" autocomplete="off" placeholder="Introduce el nombre del pokémon" class="form-control me-2" id="inputPokemon">
+      <form action="" class="d-md-flex" role="search" onsubmit="searchPokemon(event)" id="formPokeApi">
+        <input type="text" name="pokemon" autocomplete="off" placeholder="Enter the name of the pokemon" class="form-control me-2" id="inputPokemon">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <div data-poke-card class="poke-card">
@@ -94,48 +101,48 @@
         <div class="container-fluid p-4">
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4">Nuestro mundo</h5>
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
 
                     <ul class="list-unstyled mb-4">
                         <li>
-                            <a href="#!" class="text-white">Acerca de nosotros</a>
+                            <a href="#" class="text-white">About us</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Collecciones</a>
+                            <a href="#" class="text-white">Collections</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Filosofía ambiental</a>
+                            <a href="#" class="text-white">Environmental philosophy</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Colaboraciones de artistas</a>
+                            <a href="#" class="text-white">Artist collaborations</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4">Asistencia</h5>
+                    <h5 class="text-uppercase mb-4">ATTENDANCE</h5>
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!" class="text-white">Contactanos</a>
+                            <a href="#!" class="text-white">Contact us</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Guia de tallas</a>
+                            <a href="#!" class="text-white">Size guide</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Información de envío</a>
+                            <a href="#!" class="text-white">Shipment information</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Devoluciones / Cambios</a>
+                            <a href="#!" class="text-white">Returns/Exchanges</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Pagos</a>
+                            <a href="#!" class="text-white">Payments</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4">Siguenos en Redes</h5>
+                    <h5 class="text-uppercase mb-4">FOLLOW US ON NETWORKS</h5>
 
                     <ul class="list-unstyled">
                         <li>
@@ -159,11 +166,11 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4">Suscríbase a nuestro boletín de noticias</h5>
+                    <h5 class="text-uppercase mb-4">SUBSCRIBE TO OUR NEWSLETTER</h5>
 
                     <div class="form-outline form-white mb-4">
-                        <input type="email" id="form5Example2" class="form-control" placeholder="Introduce tu correo electronico" />
-                        <button type="submit" class="btn btn-dark">Suscribirse</button>
+                        <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+<nav class="navbar navbar-expand-md navbar-warning bg-warning">
     <div class="container-fluid">
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mi-menu">
             <span class="navbar-toggler-icon"></span>
@@ -17,33 +17,37 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./index.html">
                         <img src="./assets/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">
-                        Inicio
+                        Start
                     </a>
                 </li>
                 <!-- Segunda IMG -->
                 <li class="nav-item">
                     <a class="nav-link" href="./pokedex.html">
                         <img src="./assets/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">
-                        Pokédex
+                        Pokedex
                     </a>
                 </li>
                 <!-- Tercera IMG -->
-                <li class="nav-item">
-                    <a class="nav-link" href="./videojuegos.html">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
                         <img src="./assets/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">
-                        Videojuegos
+                        Video Games
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a href="../src/dragAndDrop.html" class="dropdown-item">Puzzle</a>
+                        <a href="../src/videojuegos.html" class="dropdown-item">Video Games</a>
+                    </div>
                 </li>
                 <!-- Cuarta IMG -->
                 <li class="nav-item">
                     <a class="nav-link" href="./noticias.html">
                         <img src="./assets/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">
-                        Noticias
+                        News
                     </a>
                 </li>
             </ul>
             <!-- Busquedad -->
-            <form class="d-flex" role="search">
+            <form class="d-md-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -54,13 +58,13 @@
 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" id="carousel-size">
         <div class="carousel-item active">
-            <img src="./assets/imgPokemon/carousel1.jpg" class="d-block w-100" alt="Mewtwo" height="500px">
+            <img src="./assets/imgPokemon/carousel1.jpg" class="d-block w-100 img-fluid" alt="Mewtwo" height="500px">
         </div>
         <div class="carousel-item">
-            <img src="./assets/imgPokemon/carousel2.jpg" class="d-block w-100" alt="Kyurem" height="500px">
+            <img src="./assets/imgPokemon/carousel2.jpg" class="d-block w-100 img-fluid" alt="Kyurem" height="500px">
         </div>
         <div class="carousel-item">
-            <img src="./assets/imgPokemon/carousel3.jpg" class="d-block w-100" alt="Lucario" height="500px">
+            <img src="./assets/imgPokemon/carousel3.jpg" class="d-block w-100 img-fluid" alt="Lucario" height="500px">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
@@ -76,64 +80,60 @@
 <!-- Cards -->
 <!-- Card 1 -->
 <div class="container">
-    <h3>Descubre alguno de nuestros pokémons</h3>
+    <h3>Discover some of our Pokemon</h3>
     <div class="row">
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="card">
-                <img src="./assets/imgPokemon/kyurem.png" alt="Kyurem" class="card-img-top">
+                <img src="./assets/imgPokemon/kyurem.png" alt="Kyurem" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h5 class="card-title">Kyurem</h5>
-                    <p class="card-text">Pokémon legendario que aguarda al héroe que compense el vacío de su cuerpo de
-                        hielo con verdad e ideales. Produce en su interior una intensa energía gélida, y cualquier fuga
-                        hace que su cuerpo se congele. Pokémon legendario que aguarda al héroe que compense el vacío de
-                        su cuerpo de hielo con verdad e ideales.</p>
+                    <p class="card-text">Legendary Pokémon that awaits the hero who compensates for the emptiness of his 
+                        ice body with truth and ideals. It produces intense icy energy within it, and any leakage causes 
+                        its body to freeze. Legendary Pokémon that awaits the hero who compensates for the emptiness of his
+                         ice body with truth and ideals.</p>
                     <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-placement="top"
                         data-bs-title="Buen Pokémon" data-bs-target="#pokemonModal"
-                        onclick="actualizarInfoModal('kyurem')">Saber más</button>
+                        onclick="actualizarInfoModal('kyurem')">Know more</button>
                 </div>
             </div>
         </div>
         <!-- Card 2 -->
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="card">
-                <img src="./assets/imgPokemon/mewtwo.png" alt="Mewtwo" class="card-img-top">
+                <img src="./assets/imgPokemon/mewtwo.png" alt="Mewtwo" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h5 class="card-title">Mewtwo</h5>
-                    <p class="card-text">Mewtwo es sumamente hábil con sus poderes psíquicos: puede volar mediante la
-                        levitación, comunicarse telepáticamente, reflejar ataques como hiperrayo, bloquear las
-                        habilidades especiales de los demás Pokémon y tomar el mando de la mente de otra criatura viva
-                        mediante hipnosis.</p>
+                    <p class="card-text">Mewtwo is extremely skilled with its psychic powers: it can fly 
+                        through levitation, communicate telepathically, reflect attacks such as hyper beam, 
+                        block other Pokémon's special abilities, and take command of another living creature's mind through hypnosis.</p>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#pokemonModal"
-                        id="mewtwo-modal" onclick="actualizarInfoModal('mewtwo')">Saber más</button>
+                        id="mewtwo-modal" onclick="actualizarInfoModal('mewtwo')">Know more</button>
                 </div>
             </div>
         </div>
         <!-- Card 3 -->
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="card">
-                <img src="./assets/imgPokemon/lucario.png" alt="Lucario" class="card-img-top">
+                <img src="./assets/imgPokemon/lucario.png" alt="Lucario" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h5 class="card-title">Lucario</h5>
-                    <p class="card-text">Lucario es un Pokémon de tipo lucha/acero introducido en la cuarta generación.
-                        Es la evolución de Riolu y puede megaevolucionar en Mega-Lucario.</p>
+                    <p class="card-text">Lucario is a Fighting/Steel-type Pokémon introduced in Generation IV. It is the evolution of Riolu and can Mega Evolve into Mega-Lucario.</p>
                     <button class="btn btn-danger" data-bs-toggle="modal" title="Buen Pokémon"
-                        data-bs-target="#pokemonModal" id="lucario-modal" onclick="actualizarInfoModal('lucario')">Saber
-                        más</button>
+                        data-bs-target="#pokemonModal" id="lucario-modal" onclick="actualizarInfoModal('lucario')">Know more</button>
                 </div>
             </div>
         </div>
         <!-- Card 4 -->
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="card">
-                <img src="./assets/imgPokemon/rayquaza.png" alt="Rayquaza" class="card-img-top">
+                <img src="./assets/imgPokemon/rayquaza.png" alt="Rayquaza" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h5 class="card-title">Rayquaza</h5>
-                    <p class="card-text">Rayquaza es un Pokémon legendario de tipo dragón/volador introducido en la
-                        tercera generación. Es la mascota de Pokémon Esmeralda. Forma parte del trío creador junto con
-                        Groudon y Kyogre. A partir de Pokémon Rubí Omega y Pokémon Zafiro Alfa puede megaevolucionar en
-                        Mega-Rayquaza.</p>
+                    <p class="card-text">Rayquaza is a legendary dragon/flying type Pokémon introduced in the third generation. 
+                        It is the mascot of Pokémon Emerald. He is part of the creator trio along with Groudon and Kyogre. From 
+                        Pokémon Omega Ruby and Pokémon Alpha Sapphire it can Mega Evolve into Mega-Rayquaza.</p>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#pokemonModal"
-                        id="rayquaza-modal" onclick="actualizarInfoModal('rayquaza')">Saber más</button>
+                        id="rayquaza-modal" onclick="actualizarInfoModal('rayquaza')">Know more</button>
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
 <br>
 <div class="container">
     <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Mira todo los pokemons" style="margin-left: auto; display: block; cursor:pointer;" class="btn btn-danger">
-        <a href="./pokedex.html" style="text-decoration:none;color:inherit;">Ir a la pokedex</a>
+        <a href="./pokedex.html" style="text-decoration:none;color:inherit;">Go to the pokedex</a>
     </button>
 </div>
 <br>
@@ -175,89 +175,89 @@
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="text-center bg-warning text-lg-start border border-white mt-xl-5 pt-4">
-    <div class="container-fluid p-4">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Nuestro mundo</h5>
+    <!-- Footer -->
+    <footer class="text-center bg-warning text-lg-start border border-white mt-xl-5 pt-4">
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
 
-                <ul class="list-unstyled mb-4">
-                    <li>
-                        <a href="#!" class="text-white">Acerca de nosotros</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Collecciones</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Filosofía ambiental</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Colaboraciones de artistas</a>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            <a href="#" class="text-white">About us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Collections</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Environmental philosophy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Artist collaborations</a>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Asistencia</h5>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">ATTENDANCE</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!" class="text-white">Contactanos</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Guia de tallas</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Información de envío</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Devoluciones / Cambios</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-white">Pagos</a>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Size guide</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Shipment information</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Returns/Exchanges</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Payments</a>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Siguenos en Redes</h5>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">FOLLOW US ON NETWORKS</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="facebook.com" style="margin-right: 10px;">
-                            <img src="./assets/imgPokemon/facebook.svg" alt="Facebook" height="30px">
-                        </a>
-                        <a href="instagram.com" style="margin-right: 10px;">
-                            <img src="./assets/imgPokemon/instagram.svg" alt="Instagram" height="30px">
-                        </a>
-                        <a href="twitter.com" style="margin-right: 10px;">
-                            <img src="./assets/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px">
-                        </a>
-                        <a href="twitter.com" style="margin-right: 10px;">
-                            <img src="./assets/imgPokemon/youtube.svg" alt="Youtube" height="30px">
-                        </a>
-                        <a href="tiktok.com">
-                            <img src="./assets/imgPokemon/tiktok.svg" alt="TikTok">
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="facebook.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/facebook.svg" alt="Facebook" height="30px">
+                            </a>
+                            <a href="instagram.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/instagram.svg" alt="Instagram" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/youtube.svg" alt="Youtube" height="30px">
+                            </a>
+                            <a href="tiktok.com">
+                                <img src="./assets/imgPokemon/tiktok.svg" alt="TikTok">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5 class="text-uppercase mb-4">Suscríbase a nuestro boletín de noticias</h5>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">SUBSCRIBE TO OUR NEWSLETTER</h5>
 
-                <div class="form-outline form-white mb-4">
-                    <input type="email" id="form5Example2" class="form-control" placeholder="Introduce tu correo electronico" />
-                    <button type="submit" class="btn btn-dark">Suscribirse</button>
+                    <div class="form-outline form-white mb-4">
+                        <input type="email" id="form5Example2" class="form-control" placeholder="Enter your email" />
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Copyright -->
-    <div class="text-center p-3 border-top border-white">
-        © 2024 Copyright:
-        <a class="text-white" href="#">pokemon.com</a>
-    </div>
-</footer>
+        <!-- Copyright -->
+        <div class="text-center p-3 border-top border-white">
+            © 2024 Copyright:
+            <a class="text-white" href="#">pokemon.com</a>
+        </div>
+    </footer>

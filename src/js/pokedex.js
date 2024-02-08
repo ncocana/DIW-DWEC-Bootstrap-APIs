@@ -5,6 +5,7 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
+const pokeButton = document.querySelector('[data-poke-button]');
 
 const typeColors = {
     electric: '#FFEA70',
@@ -23,29 +24,36 @@ const typeColors = {
     dragon: '#DA627D',
     steel: '#1D8A99',
     fighting: '#2F2F2F',
+    dark: '#D9D9D9',
     default: '#2A1A1F',
 };
 
 
-const searchPokemon = event => {
+const searchPokemon = async event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
-        .then(data => data.json())
-        .then(response => renderPokemonData(response))
-        .catch(err => renderNotFound())
+    
+    if (value) {
+        const pokemonData = await getOnePokemon(value);
+        if (pokemonData !== null) {
+            renderPokemonData(pokemonData);
+        } else {
+            renderNotFound();
+        }
+    }
 }
 
 const renderPokemonData = data => {
     const sprite =  data.sprites.front_default;
     const { stats, types } = data;
 
-    pokeName.textContent = data.name;
+    pokeName.textContent = capitalizeFirstLetter(data.name);
     pokeImg.setAttribute('src', sprite);
     pokeId.textContent = `Nº ${data.id}`;
     setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);
+    renderButton();
 }
 
 
@@ -60,8 +68,8 @@ const renderPokemonTypes = types => {
     pokeTypes.innerHTML = '';
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
-        typeTextElement.style.color = typeColors[type.type.name];
-        typeTextElement.textContent = type.type.name;
+        typeTextElement.style.color = (type.type.name != 'dark' ? typeColors[type.type.name] : typeColors.default);
+        typeTextElement.textContent = capitalizeFirstLetter(type.type.name);
         pokeTypes.appendChild(typeTextElement);
     });
 }
@@ -72,7 +80,7 @@ const renderPokemonStats = stats => {
         const statElement = document.createElement("div");
         const statElementName = document.createElement("div");
         const statElementAmount = document.createElement("div");
-        statElementName.textContent = stat.stat.name;
+        statElementName.textContent = capitalizeFirstLetter(stat.stat.name);
         statElementAmount.textContent = stat.base_stat;
         statElement.appendChild(statElementName);
         statElement.appendChild(statElementAmount);
@@ -80,11 +88,22 @@ const renderPokemonStats = stats => {
     });
 }
 
+const renderButton = () => {
+    pokeButton.innerHTML = '';
+    const buttonElement = document.createElement("button");
+
+    buttonElement.onclick = insertFavPokemon;
+    buttonElement.innerHTML = "Add to favorites";
+
+    pokeButton.appendChild(buttonElement);
+}
+
 const renderNotFound = () => {
-    pokeName.textContent = 'No encontrado';
-    pokeImg.setAttribute('src', 'poke-shadow.png');
+    pokeName.textContent = 'Not found. Try again later!';
+    pokeImg.setAttribute('src', './assets/imgPokemon/poke-shadow.png');
     pokeImg.style.background =  '#fff';
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
+    pokeButton.innerHTML = '';
 }

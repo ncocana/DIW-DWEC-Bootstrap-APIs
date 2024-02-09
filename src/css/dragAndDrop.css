@@ -46,11 +46,10 @@ body {
 #images img {
     padding: 5px;
 }
-
-img {
+/* Colocamos id a las img */
+#drag1,#drag2,#drag3,#drag4,#drag5,#drag6,#drag6,#drag7,#drag8,#drag9{
   height: 200px;
   width: 200px;
-
   display: inline-block;
 }
 
@@ -75,4 +74,29 @@ img {
 
 #restartPuzzleButton {
     text-align: center;
+}
+/* Ordenar puzzle */
+#puzzle .row {
+  display: flex;
+  width: 100%;
+}
+
+#puzzle .col-4 {
+  height: 200px; 
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+#puzzle div[id^="div"] {
+  height: 200px;
+  width: 100%;
+  border: 1px dashed gray;
+  box-sizing: border-box;
+}
+
+#puzzle img {
+  height: 200px;
+  width: 100%;
+  padding: 5px;
 }

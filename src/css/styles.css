@@ -11855,3 +11855,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#map {
+  height: 30%;
+  height: 50%;
+  padding: 100px;
+  margin: 100px;
+}

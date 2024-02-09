@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/utilities.js"></script>
+    <!-- Links Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-warning bg-warning">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mi-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mi-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Logo -->
+                    <li class="navbar-brand">
+                        <a class="nav-link" href="./index.html">
+                            <img src="./assets/imgPokemon/logo_pokemon.png" alt="Logo" height="40px">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto me-3">
+                    <!-- Primera IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <img src="./assets/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">
+                            Start
+                        </a>
+                    </li>
+                    <!-- Segunda IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pokedex.html">
+                            <img src="./assets/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">
+                            Pokedex
+                        </a>
+                    </li>
+                    <!-- Tercera IMG -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
+                            <img src="./assets/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">
+                            Video Games
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="../src/dragAndDrop.html" class="dropdown-item">Puzzle</a>
+                            <a href="../src/videojuegos.html" class="dropdown-item">Video Games</a>
+                        </div>
+                    </li>
+                    <!-- Cuarta IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./noticias.html">
+                            <img src="./assets/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">
+                            News
+                        </a>
+                    </li>
+                </ul>
+                <!-- Busquedad -->
+                <form class="d-md-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Cards -->
+    <!-- Card 1 -->
+    <div class="container">
+        <h3>News</h3>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news1.png" alt="PokemonEscarlataYpurpura" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">February 5, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Drampa debuts in Pokémon GO's Lunar New Year: Dragons Unleashed event</h5>
+                        <p class="text-secondary">Dragon-type Pokémon roam free in a week-long celebration that features event bonuses, research, and a global challenge</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news2.png" alt="Mewtwo" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">February 5, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Take on Luvdisc in Tera Raids</h5>
+                        <p class="text-secondary">Go out in search of Luvdisc this Valentine's Day and get some juicy rewards to level up your Pokémon.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news3.png" alt="Lucario" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">February 5, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Make your rivals fall exhausted with Pegasus and Noctowl in Pokémon Masters EX</h5>
+                        <p class="text-secondary">Pegasus joins forces with an iconic Flying-type Pokémon native to the Johto region.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news4.png" alt="Rayquaza" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 31, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Tips for challenging Mega-Latias and Mega-Latios in Pokémon GO raids</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Cards Second Round -->
+    <!-- Card 1 -->
+    <div class="container">
+        <div class="row" id="JDS">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news5.png" alt="PokemonEscarlataYpurpura" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 31, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Hatch your kindness with Chansey during Pokémon GO February 2024 Community Day</h5> 
+                        <p class="text-secondary">Capture Chansey and hatch Happiny during this event with special research, bonuses, and more</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news6.png" alt="Mewtwo" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 31, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Go all out with Chase and Pikachu in Pokémon Masters EX</h5>
+                        <p class="text-secondary">These support sync pairs from Kanto will bring Pallet Town pride to your team.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news7.png" alt="Lucario" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 29, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Empoleon with the Unbeatable Emblem will appear very soon in 7-star raids</h5>
+                        <p class="text-secondary">In addition to the arrival of Ice tera-type Empoleon, you can also find a very generous Blissey in 5-star tera-raids.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news8.png" alt="Rayquaza" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 26, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Dark Raid Weekend: Pokémon GO Ho-Oh</h5>
+                        <p class="text-secondary">Rainbow Pokémon Takes Over Tier 5 Dark Raids During Weekend Event</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Cards Third Round -->
+    <!-- Card 1 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news9.png" alt="PokemonEscarlataYpurpura"
+                        class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 26, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Varoom Debuts and Dark Kyogre Raises the Tide During Pokémon GO's Looted Treasures Event</h5>
+                        <p class="text-secondary">A new takeover of Team GO Rocket brings us tons of dark Pokémon</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news10.png" alt="Mewtwo" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 25, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">Magikarp evolves into Gyarados in Pokémon UNITE</h5>
+                        <P class="text-secondary">Gather all your Self-Esteem to use Splash until you become the Atrocity Pokémon</P>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news11.png" alt="Lucario" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 25, 2024</h6>
+                        <h6 class="text-secondary">Video games and applications</h6>
+                        <h5 class="text-dark">January 2024 Sleepyhead Day Event in Pokémon Sleep</h5>
+                        <p class="text-secondary">Enjoy the dream of champions and earn additional Zzz power every month during the night of the full moon</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgNoticiasPokemon/news12.png" alt="Rayquaza" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h6 class="text-danger">January 25, 2024</h6>
+                        <h6 class="text-secondary">Collectible Card Games</h6>
+                        <h5 class="text-dark">Scarlet and Purple - Paldea Fates Now Available to Play in the Pokémon TCG Live</h5>
+                        <p class="text-secondary">Enjoy the latest expansion and earn new in-game rewards with the February 2024 Ladder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Footer -->
+    <footer class="text-center bg-warning text-lg-start border border-white mt-xl-5 pt-4">
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
+
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            <a href="#" class="text-white">About us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Collections</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Environmental philosophy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Artist collaborations</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">ATTENDANCE</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Size guide</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Shipment information</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Returns/Exchanges</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Payments</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">FOLLOW US ON NETWORKS</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="facebook.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/facebook.svg" alt="Facebook" height="30px">
+                            </a>
+                            <a href="instagram.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/instagram.svg" alt="Instagram" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/youtube.svg" alt="Youtube" height="30px">
+                            </a>
+                            <a href="tiktok.com">
+                                <img src="./assets/imgPokemon/tiktok.svg" alt="TikTok">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">SUBSCRIBE TO OUR NEWSLETTER</h5>
+
+                    <div class="form-outline form-white mb-4">
+                        <input type="email" id="subscriberEmail" name="email" class="form-control" placeholder="Enter your email" />
+                        <button type="submit" class="btn btn-dark" onclick="insertSubscriber()">Subscribe</button>
+                        <button type="submit" class="btn btn-dark" onclick="deleteSubscriber()">Cancel subscription</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3 border-top border-white">
+            © 2024 Copyright:
+            <a class="text-white" href="#">pokemon.com</a>
+        </div>
+    </footer>
+    <script src="./js/initIndexedDB.js"></script>
+    <script src="./js/indexedDBCrud.js"></script>
+    <script src="./js/all.js"></script>
+</body>
+</html>

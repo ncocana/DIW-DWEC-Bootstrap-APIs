@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/utilities.js"></script>
+    <!-- Links Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mi-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mi-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Logo -->
+                    <li class="navbar-brand">
+                        <a class="nav-link" href="./index.html">
+                            <img src="./assets/imgPokemon/logo_pokemon.png" alt="Logo" height="40px">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto me-3">
+                    <!-- Primera IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <img src="./assets/imgPokemon/pokebola.png" alt="Pokebola" height="30px" class="me-1">
+                            Start
+                        </a>
+                    </li>
+                    <!-- Segunda IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pokedex.html">
+                            <img src="./assets/imgPokemon/pokedex.png" alt="Pokedex" height="30px" class="me-1">
+                            Pokedex
+                        </a>
+                    </li>
+                    <!-- Tercera IMG -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
+                            <img src="./assets/imgPokemon/videojuego.png" alt="Videojuego" height="30px" class="me-1">
+                            Video Games
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="../src/dragAndDrop.html" class="dropdown-item">Puzzle</a>
+                            <a href="../src/videojuegos.html" class="dropdown-item">Video Games</a>
+                        </div>
+                    </li>
+                    <!-- Cuarta IMG -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./noticias.html">
+                            <img src="./assets/imgPokemon/noticias.png" alt="Noticias" height="30px" class="me-1">
+                            News
+                        </a>
+                    </li>
+                </ul>
+                <!-- Busquedad -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Cards -->
+    <!-- Card 1 -->
+    <div class="container">
+        <h3>All pokemon video games</h3>
+        <div class="row" id="JDS">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonescarlataypurpura.jpg" alt="PokemonEscarlataYpurpura" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Scarlet and Purple</h5>
+                        <p class="card-text">Set in a new region, players embark on a journey to become Pokémon Champions while uncovering the mysteries behind legendary Pokémon Scarlet and Purple, who hold the balance of power in the region.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Switch-Pokemon-Scarlet-Pok%C3%A9mon-Escarlata-Interruptor/dp/B0B2X1YX72/ref=sr_1_3?keywords=pokemon%2Bescarlata&qid=1707479944&sr=8-3&th=1" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonLetsgo.webp" alt="Mewtwo" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Let's Go Pikachu and Pokémon Let's Go Eevee</h5>
+                        <p class="card-text">These games are modern remakes of Pokémon Yellow Version, where players journey through the Kanto region with either Pikachu or Eevee as their partner Pokémon, capturing and battling Pokémon in a quest to become the Pokémon Champion.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Pok%C3%A9mon-Lets-Go-Pikachu/dp/B07DF2CMP4/ref=sr_1_3?crid=XNC9WBC56WZI&keywords=pokemon+lets+go+pikachu&qid=1707480017&sprefix=pokemon+let%2Caps%2C596&sr=8-3" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonArceus2.jpg" alt="Lucario" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokémon Legends: Arceus</h5>
+                        <p class="card-text">Set in the ancient Sinnoh region, players explore the open world, capturing Pokémon and uncovering the origin of the Pokémon world's first Pokédex. They embark on a quest to study and document the behaviors of Pokémon, including the legendary Arceus.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Switch-Leyendas-Pokemon-Arceus/dp/B091VTT67M/ref=sr_1_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1D3BGXUMKLZN2&keywords=pokemon+arceus&qid=1707480046&sprefix=pokemon+arceus%2Caps%2C251&sr=8-2" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonUnite.jpg" alt="Rayquaza" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon UNITE</h5>
+                        <p class="card-text">A multiplayer online battle arena (MOBA) game where teams of Pokémon compete against each other in strategic, five-versus-five battles, capturing wild Pokémon and defeating opponents to score points and claim victory.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://play.google.com/store/apps/details?id=jp.pokemon.pokemonunite&hl=es" style="text-decoration:none;color:inherit;">Play</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Cards Second Round -->
+    <!-- Card 1 -->
+    <div class="container">
+        <div class="row" id="JDS">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonSword.avif" alt="PokemonEscarlataYpurpura" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Sword and Shield</h5>
+                        <p class="card-text">Players journey through the Galar region, capturing and battling Pokémon to become the Champion while thwarting the plans of the villainous Team Yell and uncovering the mystery behind the Legendary Pokémon Zacian and Zamazenta.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Pok%C3%A9mon-Espada/dp/B07P8Z7KBJ/ref=sr_1_5?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1DPWXBM4I6LTN&keywords=pokemon+sword&qid=1707480159&sprefix=pokemon+sword%2Caps%2C475&sr=8-5" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonBrilliant5.jpg" alt="Mewtwo" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Brilliant Diamont and Pokémon Shining Pearl</h5>
+                        <p class="card-text">Remakes of the original Pokémon Diamond and Pearl games, players explore the Sinnoh region, capturing and battling Pokémon on their quest to become the Champion and uncover the secrets of the Legendary Pokémon Dialga and Palkia.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Pokemon-Diamante-Brillante/dp/B08Y6ZM72D/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2CYLL6X8GZWN8&keywords=pokemon+brilliant&qid=1707480186&sprefix=pokemon+brillian%2Caps%2C529&sr=8-1" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemongo.jpg" alt="Lucario" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon GO</h5>
+                        <p class="card-text">A mobile augmented reality game where players explore the real world to find and capture Pokémon, engage in battles at Gyms, and participate in events with other players.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo&hl=ca&gl=US" style="text-decoration:none;color:inherit;">Play</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonXY.webp" alt="Rayquaza" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon X y Y</h5>
+                        <p class="card-text">Players explore the Kalos region, capturing and battling Pokémon while thwarting the plans of the villainous Team Flare and uncovering the mysteries of Mega Evolution and the Legendary Pokémon Xerneas and Yveltal.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-2225340-Pok%C3%A9mon-Importaci%C3%B3n-alemana/dp/B00AYWPR9I/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=16NMJH5Y56FBB&keywords=pokemon+xy+juego&qid=1707480261&sprefix=pokemon+xy+jue%2Caps%2C145&sr=8-1" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Cards Third Round -->
+    <!-- Card 1 -->
+    <div class="container">
+        <div class="row" id="JDS">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/newPokemonSnap.jpg" alt="PokemonEscarlataYpurpura" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">New Pokemon Snap</h5>
+                        <p class="card-text">Players take on the role of a Pokémon photographer, exploring various islands to capture photos of Pokémon in their natural habitats and uncover the mysteries of the Illumina phenomenon.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Pok%C3%A9mon-Snap/dp/B08BMFTJHY/ref=sr_1_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1WH91VFIKPJJJ&keywords=new+pokemon+snap&qid=1707480308&sprefix=new+pokemon+%2Caps%2C333&sr=8-2" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonUltraSolLuna.jpg" alt="Mewtwo" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Ultra Sun and Ultra Moon</h5>
+                        <p class="card-text">Enhanced versions of Pokémon Sun and Moon, players journey through the Alola region to become the Champion while facing new challenges and encountering alternate forms of Legendary Pokémon Solgaleo and Lunala.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Pok%C3%A9mon-Ultra-Sun-Nintendo-Importaci%C3%B3n/dp/B072X3QNN6/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=SZIZY63JUJ1F&keywords=pokemon+ultra+sol&qid=1707480335&sprefix=pok%C3%A9mon+ultra+sol%2Caps%2C334&sr=8-1" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/detectivePikachu.jpg" alt="Lucario" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Detective Pikachu</h5>
+                        <p class="card-text">Players take on the role of Tim Goodman, teaming up with a talking Pikachu to solve mysteries and uncover the whereabouts of Tim's missing father in Ryme City.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-Detective-Pikachu-El-Regreso/dp/B0C8YXNFLK/ref=sr_1_2?crid=2LDA50BL991X3&keywords=detective+pikachu+switch&qid=1707480357&sprefix=detective+pi%2Caps%2C196&sr=8-2" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100">
+                    <img src="./assets/imgPokemon/pokemonBlancoYnegro.jpg" alt="Rayquaza" class="card-img-top" height="305px">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokemon Black and White</h5>
+                        <p class="card-text">Players journey through the Unova region, capturing and battling Pokémon while challenging the Pokémon League and thwarting the plans of the villainous Team Plasma to liberate Pokémon from human control.</p>
+                        <button class="btn btn-danger" type="button">
+                            <a href="https://www.amazon.es/Nintendo-NDS-Pok%C3%A9mon-Blanco/dp/B005BCPDOU/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=O2GX7P5DKRVX&keywords=pokemon+blanco+y+negro+juego&qid=1707480419&sprefix=pokemon+blanco+y+negrojueg%2Caps%2C411&sr=8-4" style="text-decoration:none;color:inherit;">Buy</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- Footer -->
+    <footer class="text-center bg-warning text-lg-start border border-white mt-xl-5 pt-4">
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">OUR WORLD</h5>
+
+                    <ul class="list-unstyled mb-4">
+                        <li>
+                            <a href="#" class="text-white">About us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Collections</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Environmental philosophy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">Artist collaborations</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">ATTENDANCE</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Size guide</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Shipment information</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Returns/Exchanges</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Payments</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">FOLLOW US ON NETWORKS</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="facebook.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/facebook.svg" alt="Facebook" height="30px">
+                            </a>
+                            <a href="instagram.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/instagram.svg" alt="Instagram" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/twitter-x.svg" alt="Twitter-X" height="30px">
+                            </a>
+                            <a href="twitter.com" style="margin-right: 10px;">
+                                <img src="./assets/imgPokemon/youtube.svg" alt="Youtube" height="30px">
+                            </a>
+                            <a href="tiktok.com">
+                                <img src="./assets/imgPokemon/tiktok.svg" alt="TikTok">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">SUBSCRIBE TO OUR NEWSLETTER</h5>
+
+                    <div class="form-outline form-white mb-4">
+                        <input type="email" id="subscriberEmail" name="email" class="form-control" placeholder="Enter your email" />
+                        <button type="submit" class="btn btn-dark" onclick="insertSubscriber()">Subscribe</button>
+                        <button type="submit" class="btn btn-dark" onclick="deleteSubscriber()">Cancel subscription</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3 border-top border-white">
+            © 2024 Copyright:
+            <a class="text-white" href="#">pokemon.com</a>
+        </div>
+    </footer>
+    <script src="./js/initIndexedDB.js"></script>
+    <script src="./js/indexedDBCrud.js"></script>
+</body>
+
+</html>

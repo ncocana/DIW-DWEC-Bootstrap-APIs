@@ -18,13 +18,22 @@ function restartPuzzle() {
         puzzleDiv.removeChild(puzzleDiv.firstChild);
     }
 
+    // Move puzzle container to right
+    document.getElementById('game').className = "d-flex flex-wrap justify-content-around flex-row";
+
     // Add empty puzzle pieces back inside puzzle div
-    for (let i = 0; i < 9; i++) {
-        let div = document.createElement("div");
-        div.id = "div" + (i + 1);
-        div.ondrop = drop;
-        div.ondragover = allowDrop;
-        puzzleDiv.appendChild(div);
+    for (let i = 0; i < 3; i++) {
+        let divRow = document.createElement("div");
+        divRow.className = "row";
+        for (let j = 0; j < 3; j++) {
+            let divSquare = document.createElement("div");
+            divSquare.id = "div" + (i + j * 3 + 1);
+            divSquare.className = "col-4";
+            divSquare.ondrop = drop;
+            divSquare.ondragover = allowDrop;
+            divRow.appendChild(divSquare);
+        }
+        puzzleDiv.appendChild(divRow);
     }
 
     // Remove the message of completion if it exists.
@@ -45,7 +54,7 @@ function restartPuzzle() {
 }
 
 function checkPuzzle() {
-    let puzzlePieces = document.querySelectorAll('#puzzle div');
+    let puzzlePieces = document.querySelectorAll('#puzzle div div');
     let correct = true;
 
     puzzlePieces.forEach(function (piece, index) {
@@ -55,10 +64,14 @@ function checkPuzzle() {
             correct = false;
         }
     });
+    // console.log(correct);
 
     if (correct) {
         document.getElementById("completion-message").innerHTML = "<p>Congratulations! You've completed the puzzle!</p>";
-        document.getElementById("puzzle").innerHTML = "<img id='img-completed' alt='img-completed' src='./assets/original/" + selectedPuzzle + ".jpg'>"
+        document.getElementById("completion-message").firstChild.className = "alert alert-success m-3";
+        document.getElementById("completion-message").firstChild.role = "alert";
+        document.getElementById("puzzle").innerHTML = "<img id='img-completed' alt='img-completed' src='./assets/original/" + selectedPuzzle + ".jpg'>";
+        document.getElementById('game').className = "d-flex flex-wrap justify-content-around flex-column";
     }
 }
 

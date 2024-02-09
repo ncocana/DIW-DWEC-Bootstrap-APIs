@@ -1,8 +1,8 @@
 // Spinner of index.html
-setTimeout(function () {
+setTimeout(async function () {
     if (document.querySelector("#index-content")) {
         // Fetch HTML content from external file
-        fetch('./index-content.html')
+        await fetch('./index-content.html')
           .then(response => response.text())
           .then(html => {
             // Insert the fetched HTML content into the document
@@ -11,6 +11,7 @@ setTimeout(function () {
           .catch(error => {
             console.error('Error fetching HTML:', error);
           });
+          initMap();
     }
 }, 1000);
 

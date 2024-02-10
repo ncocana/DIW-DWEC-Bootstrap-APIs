@@ -2,7 +2,7 @@ const INPUT_POKEMON_NAME = "inputPokemonName";
 // const INPUT_POKEMON_STATUS = "inputPokemonStatus";
 const INPUT_SUBSCRIBER_EMAIL = "subscriberEmail";
 
-const db_openRequest = indexedDB.open(DB_NAME, 1);
+const db_openRequest = indexedDB.open(DB_NAME,1);
 
 async function getAllPokemon() {
     return new Promise((resolve, reject) => {
@@ -56,29 +56,43 @@ async function getOnePokemon(name = '') {
     });
 }
 
+const dbPromise = new Promise((resolve, reject) => {
+    const db_openRequest = indexedDB.open(DB_NAME, 1);
+
+    db_openRequest.onsuccess = function (ev) {
+        const db = ev.target.result;
+        resolve(db);
+    };
+
+    db_openRequest.onerror = function (ev) {
+        reject(new Error("Error opening database: " + ev.target.error));
+    };
+});
+
+async function openDatabase() {
+    return await dbPromise;
+}
+
 async function getAllFavPokemon() {
-    return new Promise((resolve, reject) => {
-        const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readonly');
+    try {
+        const db = await dbPromise;
+        const transaction = db.transaction(DB_TABLE_FAV_POKEMONS, 'readonly');
         const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
-        const request = objectStore.openCursor();
+        const request = objectStore.getAll();
 
-        const result = [];
-
-        request.onsuccess = function (ev) {
-            const cursor = ev.target.result;
-            if (cursor) {
-                result.push(cursor.value);
-                cursor.continue();
-            } else {
+        return new Promise((resolve, reject) => {
+            request.onsuccess = (ev) => {
+                const result = ev.target.result;
                 resolve(result);
-                // console.log(result);
-            }
-        };
+            };
 
-        request.onerror = function (ev) {
-            reject(new Error("Failed to get all favorite Pokemon data."));
-        };
-    });
+            request.onerror = (ev) => {
+                reject(new Error("Failed to get all favorite Pokemon data."));
+            };
+        });
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 async function getOneFavPokemon(name = '') {
@@ -167,19 +181,23 @@ async function updateFavPokemon() {
 }
 
 async function deleteFavPokemon() {
-    let valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value;
-
     try {
-        const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
-        const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
+        let valuePokemonNameElement = document.getElementById(INPUT_POKEMON_NAME);
 
-        // Delete an existing record
-        const request = objectStore.delete(valuePokemonName);
+        if (valuePokemonNameElement) {
+            let valuePokemonName = valuePokemonNameElement.value;
 
-        request.onsuccess = function (ev) {
-            // Show a message indicating successful delete
-            showMessage('Pokemon deleted successfully!');
-        };
+            const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
+            const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
+
+            const request = objectStore.delete(valuePokemonName);
+
+            request.onsuccess = function (ev) {
+                showMessage('Pokemon deleted successfully!');
+            };
+        } else {
+            console.error("Element with ID 'inputPokemonName' not found.");
+        }
     } catch (error) {
         console.error(error.message);
     }

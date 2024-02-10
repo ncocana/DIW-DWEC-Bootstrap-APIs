@@ -84,6 +84,7 @@ async function addPokemonUntilNoMore(database) {
     let idPokemon = 1;
 
     while (true) {
+        try{
         const pokemonObject = await getPokemon(idPokemon);
 
         if (pokemonObject.id === undefined) {
@@ -98,9 +99,12 @@ async function addPokemonUntilNoMore(database) {
 
         // Increment id for the next Pokemon
         idPokemon++;
+    }catch(error){
+        console.error("Error adding Pokemon: ",error);
+        break;
     }
 }
-
+}
 (async function() {
     const db_openRequest = indexedDB.open(DB_NAME, 1);
 

@@ -18,7 +18,7 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody, index) {
     cellStatus.className = "align-middle";
 
     cellActions.innerHTML = `
-        <button type="button" class="btn btn-warning mt-2" onclick="toggleStatusEdit(${index})">Update</button>
+        <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Click elsewhere to update" class="btn btn-warning mt-2" onclick="toggleStatusEdit(${index})">Update</button>
         <button type="button" class="btn btn-danger mt-2" onclick="deleteFavPokemon('${favPokemon.data.name}')">Delete</button>
     `;
     cellActions.className = "align-middle";

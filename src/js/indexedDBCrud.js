@@ -148,9 +148,10 @@ async function insertFavPokemon() {
             request.onsuccess = function (ev) {
                 // console.log('Pokemon added successfully!');
                 // Show a message indicating successful addition
-                showMessage('Pokemon added successfully!');
                 if (window.location.pathname == '/pokemonfavourite.html' || window.location.pathname == '/src/pokemonfavourite.html' || window.location.pathname == '/dist/pokemonfavourite.html') {
                     location.reload();
+                } else {
+                    showMessage('Pokemon added successfully!');
                 }
             };
         }

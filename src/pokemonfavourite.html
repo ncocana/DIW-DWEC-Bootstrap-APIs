@@ -126,38 +126,35 @@
       </div>
     </nav>
 
-    <!-- Favorite Pokemon -->
-    <div id="favoritePokemonSection" style="display: none">
-      <h2 class="mb-4">My Favorite Pokemons</h2>
-      <div class="mb-3">
-        <input
-          type="text"
-          id="inputPokemonName"
-          class="form-control"
-          placeholder="Enter the Pokemon you want to add"
-        />
-        <button
-          type="button"
-          class="btn btn-primary mt-2"
-          onclick="insertFavPokemon()"
-        >
-          Add
-        </button>
-      </div>
-      <div class="table-responsive">
-        <table id="favoritePokemonTable" class="table">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="favoritePokemonTableBody"></tbody>
-        </table>
-      </div>
+    <div class="container my-3">
+        <!-- Favorite Pokemon -->
+        <div id="favoritePokemonSection" style="display: none">
+            <h2 class="mb-4">My Favorite Pokemons</h2>
+            <form action="" class="d-flex align-items-end mb-3" role="insert" onsubmit="insertFavPokemon()">
+                <input type="text" id="inputPokemonName" class="form-control me-2" placeholder="Enter the Pokemon you want to add" autocomplete="off" />
+                <button type="button" class="btn btn-primary mt-2"  type="submit">Add</button>
+            </form>
+            </div>
+            <div class="table-responsive">
+                <table id="favoritePokemonTable" class="table">
+                <thead>
+                    <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="favoritePokemonTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container col-lg-12 col-md-12 col-sm-12 text-center my-3">
+            <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Search all the Pokemons" class="btn btn-danger">
+                <a href="./pokedex.html" style="text-decoration:none;color:inherit;">Go to the pokedex</a>
+            </button>
+        </div>
     </div>
 
     <!-- Footer -->

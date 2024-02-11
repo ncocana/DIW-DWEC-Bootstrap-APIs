@@ -14,7 +14,7 @@ function initMap() {
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Donde estoy";
+  locationButton.textContent = "Where am I?";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {

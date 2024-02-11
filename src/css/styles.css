@@ -11861,3 +11861,14 @@ textarea.form-control-lg {
   padding: 0;
   margin: 0;
 }
+
+#bodyPokeFavorites {
+  position: relative;
+  padding-bottom: 3em;
+}
+
+#footerPokeFavorites {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

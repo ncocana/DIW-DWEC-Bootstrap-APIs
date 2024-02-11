@@ -7,6 +7,7 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody, index) {
     const cellActions = row.insertCell(4);
 
     cellSprite.innerHTML = "<img src='" + favPokemon.data.sprites.front_default + "'></img>";
+    cellSprite.className = "align-middle";
 
     cellName.textContent = capitalizeFirstLetter(favPokemon.data.name);
     cellName.className = "align-middle";
@@ -14,7 +15,8 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody, index) {
     cellType.textContent = capitalizeFirstLetter(favPokemon.data.types[0].type.name);
     cellType.className = "align-middle";
 
-    cellStatus.innerHTML = `<span id="pokemonStatus_${index}" class="align-middle tableWrap">${favPokemon.status ? capitalizeFirstLetter(favPokemon.status) : 'No status'}</span>`;
+    cellStatus.innerHTML = `<span id="pokemonStatus_${index}" class="align-middle">${favPokemon.status ? capitalizeFirstLetter(favPokemon.status) : 'No status'}</span>`;
+    cellStatus.className = "align-middle tableWrap";
 
     cellActions.innerHTML = `
         <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Click elsewhere to update" class="btn btn-warning mt-2" onclick="toggleStatusEdit(${index})">Update</button>

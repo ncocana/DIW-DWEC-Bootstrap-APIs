@@ -1,59 +1,36 @@
 function addPokemonRowToTable(favPokemon, favPokemonTableBody) {
     const row = favPokemonTableBody.insertRow();
-    const cellName = row.insertCell(0);
-    const cellType = row.insertCell(1);
+    const cellSprite = row.insertCell(0);
+    const cellName = row.insertCell(1);
+    const cellType = row.insertCell(2);
+    const cellStatus = row.insertCell(3);
+    const cellActions = row.insertCell(4);
 
-    cellName.textContent = favPokemon.data.name;
-    cellType.textContent = favPokemon.data.types[0].type.name;
-}
+    
+    cellSprite.innerHTML = "<img src='"+favPokemon.data.sprites.front_default+"'></img>"
 
-async function getAllFavPokemon() {
-    try {
-        const db = await openDatabase();  // Obtén la base de datos utilizando la función openDatabase()
-        const transaction = db.transaction(DB_TABLE_FAV_POKEMONS, 'readonly');
-        const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
-        const request = objectStore.openCursor();
+    cellName.textContent = capitalizeFirstLetter(favPokemon.data.name);
+    cellName.className = "align-middle";
 
-        return new Promise((resolve, reject) => {
-            const result = [];
+    cellType.textContent = capitalizeFirstLetter(favPokemon.data.types[0].type.name);
+    cellType.className = "align-middle";
 
-            request.onsuccess = function (ev) {
-                const cursor = ev.target.result;
-                if (cursor) {
-                    result.push(cursor.value);
-                    cursor.continue();
-                } else {
-                    resolve(result);
-                }
-            };
-
-            request.onerror = function (ev) {
-                reject(new Error("Failed to get all favorite Pokemon data."));
-            };
-        });
-    } catch (error) {
-        console.error(error.message);
+    if (favPokemon.status) {
+        cellStatus.innerHTML = `<input type="text" id="inputPokemonStatus" class="form-control" value='`+capitalizeFirstLetter(favPokemon.status)+`'/>`;
+    } else {
+        cellStatus.innerHTML = `<input type="text" id="inputPokemonStatus" class="form-control" value='No status'/>`;
     }
-}
+    cellStatus.className = "align-middle";
 
-function openDatabase() {
-    return new Promise((resolve, reject) => {
-        const db_openRequest = indexedDB.open(DB_NAME, 1);
-
-        db_openRequest.onsuccess = function (ev) {
-            const db = ev.target.result;
-            resolve(db);
-        };
-
-        db_openRequest.onerror = function (ev) {
-            reject(new Error("Error opening database: " + ev.target.error));
-        };
-    });
+    cellActions.innerHTML = `
+        <button type="button" class="btn btn-warning mt-2" onclick="updateFavPokemon('`+favPokemon.data.name+`')">Update</button>
+        <button type="button" class="btn btn-danger mt-2" onclick="deleteFavPokemon('`+favPokemon.data.name+`')">Delete</button>
+    `;
+    cellActions.className = "align-middle";
 }
 
 async function loadFavoritePokemonsTable() {
     try {
-        const db = await openDatabase();
         const favPokemonTableBody = document.getElementById("favoritePokemonTableBody");
         const favPokemonList = await getAllFavPokemon();
 
@@ -84,6 +61,4 @@ async function showFavoritePokemons() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async()=>{
-    await showFavoritePokemons();
-});
+document.addEventListener("DOMContentLoaded", showFavoritePokemons());

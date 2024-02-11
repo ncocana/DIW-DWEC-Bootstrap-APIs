@@ -1,8 +1,23 @@
 const INPUT_POKEMON_NAME = "inputPokemonName";
-// const INPUT_POKEMON_STATUS = "inputPokemonStatus";
+const INPUT_POKEMON_STATUS = "inputPokemonStatus";
 const INPUT_SUBSCRIBER_EMAIL = "subscriberEmail";
 
-const db_openRequest = indexedDB.open(DB_NAME,1);
+const db_openRequest = indexedDB.open(DB_NAME, 1);
+
+async function openDatabase() {
+    return new Promise((resolve, reject) => {
+        const db_openRequest = indexedDB.open(DB_NAME, 1);
+    
+        db_openRequest.onsuccess = function (ev) {
+            const db = ev.target.result;
+            resolve(db);
+        };
+    
+        db_openRequest.onerror = function (ev) {
+            reject(new Error("Error opening database: " + ev.target.error));
+        };
+    });;
+}
 
 async function getAllPokemon() {
     return new Promise((resolve, reject) => {
@@ -56,26 +71,9 @@ async function getOnePokemon(name = '') {
     });
 }
 
-const dbPromise = new Promise((resolve, reject) => {
-    const db_openRequest = indexedDB.open(DB_NAME, 1);
-
-    db_openRequest.onsuccess = function (ev) {
-        const db = ev.target.result;
-        resolve(db);
-    };
-
-    db_openRequest.onerror = function (ev) {
-        reject(new Error("Error opening database: " + ev.target.error));
-    };
-});
-
-async function openDatabase() {
-    return await dbPromise;
-}
-
 async function getAllFavPokemon() {
     try {
-        const db = await dbPromise;
+        const db = await openDatabase();
         const transaction = db.transaction(DB_TABLE_FAV_POKEMONS, 'readonly');
         const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
         const request = objectStore.getAll();
@@ -124,7 +122,12 @@ async function getOneFavPokemon(name = '') {
 
 async function insertFavPokemon() {
     let valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value;
-    // let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+    let valuePokemonStatus;
+    if (document.getElementById(INPUT_POKEMON_STATUS)) {
+        valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+    } else {
+        valuePokemonStatus = '';
+    }
 
     try {
         const valueData = await getOnePokemon(valuePokemonName);
@@ -136,7 +139,7 @@ async function insertFavPokemon() {
             // Modify the structure of the object to be inserted
             const favPokemonObject = {
                 data: valueData,
-                // status: valuePokemonStatus
+                status: valuePokemonStatus
             };
 
             // Add a new record
@@ -146,6 +149,9 @@ async function insertFavPokemon() {
                 // console.log('Pokemon added successfully!');
                 // Show a message indicating successful addition
                 showMessage('Pokemon added successfully!');
+                if (window.location.pathname == '/pokemonfavourite.html' || window.location.pathname == '/src/pokemonfavourite.html' || window.location.pathname == '/dist/pokemonfavourite.html') {
+                    location.reload();
+                }
             };
         }
     } catch (error) {
@@ -153,16 +159,18 @@ async function insertFavPokemon() {
     }
 }
 
-async function updateFavPokemon() {
-    let valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value;
-    // let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+async function updateFavPokemon(valuePokemonName = '') {
+    if (valuePokemonName == '') {
+        valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value.value.toLowerCase();
+    }
+    let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
 
     try {
         const valueData = await getOneFavPokemon(valuePokemonName);
 
         if (valueData) {
             // Modify the data
-            // valueData.status = valuePokemonStatus;
+            valueData.status = valuePokemonStatus;
 
             const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
             const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
@@ -173,6 +181,7 @@ async function updateFavPokemon() {
             request.onsuccess = function (ev) {
                 // Show a message indicating successful update
                 showMessage('Pokemon updated successfully!');
+                location.reload();
             };
         }
     } catch (error) {
@@ -180,20 +189,22 @@ async function updateFavPokemon() {
     }
 }
 
-async function deleteFavPokemon() {
+async function deleteFavPokemon(valuePokemonName = '') {
     try {
-        let valuePokemonNameElement = document.getElementById(INPUT_POKEMON_NAME);
+        if (valuePokemonName == '') {
+            let valuePokemonNameElement = document.getElementById(INPUT_POKEMON_NAME);
+            valuePokemonName = valuePokemonNameElement.value.toLowerCase();
+        }
 
-        if (valuePokemonNameElement) {
-            let valuePokemonName = valuePokemonNameElement.value;
-
+        if (valuePokemonName) {
             const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
             const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
 
             const request = objectStore.delete(valuePokemonName);
 
             request.onsuccess = function (ev) {
-                showMessage('Pokemon deleted successfully!');
+                // showMessage('Pokemon deleted successfully!');
+                location.reload();
             };
         } else {
             console.error("Element with ID 'inputPokemonName' not found.");

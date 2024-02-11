@@ -70,7 +70,7 @@ function checkPuzzle() {
         document.getElementById("completion-message").innerHTML = "<p>Congratulations! You've completed the puzzle!</p>";
         document.getElementById("completion-message").firstChild.className = "alert alert-success m-3";
         document.getElementById("completion-message").firstChild.role = "alert";
-        document.getElementById("puzzle").innerHTML = "<img id='img-completed' alt='img-completed' src='./assets/original/" + selectedPuzzle + ".jpg'>";
+        document.getElementById("puzzle").innerHTML = "<img id='img-completed' alt='img-completed' src='./assets/resized/" + selectedPuzzle + ".jpg'>";
         document.getElementById('game').className = "d-flex flex-wrap justify-content-around flex-column";
     }
 }

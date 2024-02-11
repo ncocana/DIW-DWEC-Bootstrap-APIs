@@ -11872,3 +11872,8 @@ textarea.form-control-lg {
   bottom: 0;
   width: 100%;
 }
+
+.tableWrap {
+  word-wrap: break-word;
+  max-width: 160px;
+}

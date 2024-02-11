@@ -14,8 +14,7 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody, index) {
     cellType.textContent = capitalizeFirstLetter(favPokemon.data.types[0].type.name);
     cellType.className = "align-middle";
 
-    cellStatus.innerHTML = `<span id="pokemonStatus_${index}" class="align-middle">${favPokemon.status ? capitalizeFirstLetter(favPokemon.status) : 'No status'}</span>`;
-    cellStatus.className = "align-middle";
+    cellStatus.innerHTML = `<span id="pokemonStatus_${index}" class="align-middle tableWrap">${favPokemon.status ? capitalizeFirstLetter(favPokemon.status) : 'No status'}</span>`;
 
     cellActions.innerHTML = `
         <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="Click elsewhere to update" class="btn btn-warning mt-2" onclick="toggleStatusEdit(${index})">Update</button>

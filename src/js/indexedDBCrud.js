@@ -159,30 +159,24 @@ async function insertFavPokemon() {
     }
 }
 
-async function updateFavPokemon(valuePokemonName = '') {
-    if (valuePokemonName == '') {
-        valuePokemonName = document.getElementById(INPUT_POKEMON_NAME).value.value.toLowerCase();
-    }
-    let valuePokemonStatus = document.getElementById(INPUT_POKEMON_STATUS).value;
+async function updateFavPokemon(updatedStatus, index) {
+    const favPokemonList = await getAllFavPokemon();
+    const favPokemon = favPokemonList[index];
 
     try {
-        const valueData = await getOneFavPokemon(valuePokemonName);
-
-        if (valueData) {
-            // Modify the data
-            valueData.status = valuePokemonStatus;
+        if (favPokemon) {
+            favPokemon.status = updatedStatus;
 
             const transaction = db_openRequest.result.transaction(DB_TABLE_FAV_POKEMONS, 'readwrite');
             const objectStore = transaction.objectStore(DB_TABLE_FAV_POKEMONS);
-            
-            // Update an existing record
-            const request = objectStore.put(valueData);
 
-            request.onsuccess = function (ev) {
-                // Show a message indicating successful update
-                showMessage('Pokemon updated successfully!');
-                location.reload();
-            };
+            // Update an existing record
+            objectStore.put(favPokemon);
+
+            // request.onsuccess = function (ev) {
+            //     // Show a message indicating successful update
+            //     showMessage('Pokemon updated successfully!');
+            // };
         }
     } catch (error) {
         console.error(error.message);

@@ -1,4 +1,4 @@
-function addPokemonRowToTable(favPokemon, favPokemonTableBody) {
+function addPokemonRowToTable(favPokemon, favPokemonTableBody, index) {
     const row = favPokemonTableBody.insertRow();
     const cellSprite = row.insertCell(0);
     const cellName = row.insertCell(1);
@@ -6,8 +6,7 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody) {
     const cellStatus = row.insertCell(3);
     const cellActions = row.insertCell(4);
 
-    
-    cellSprite.innerHTML = "<img src='"+favPokemon.data.sprites.front_default+"'></img>"
+    cellSprite.innerHTML = "<img src='" + favPokemon.data.sprites.front_default + "'></img>";
 
     cellName.textContent = capitalizeFirstLetter(favPokemon.data.name);
     cellName.className = "align-middle";
@@ -15,18 +14,33 @@ function addPokemonRowToTable(favPokemon, favPokemonTableBody) {
     cellType.textContent = capitalizeFirstLetter(favPokemon.data.types[0].type.name);
     cellType.className = "align-middle";
 
-    if (favPokemon.status) {
-        cellStatus.innerHTML = `<input type="text" id="inputPokemonStatus" class="form-control" value='`+capitalizeFirstLetter(favPokemon.status)+`'/>`;
-    } else {
-        cellStatus.innerHTML = `<input type="text" id="inputPokemonStatus" class="form-control" value='No status'/>`;
-    }
+    cellStatus.innerHTML = `<span id="pokemonStatus_${index}" class="align-middle">${favPokemon.status ? capitalizeFirstLetter(favPokemon.status) : 'No status'}</span>`;
     cellStatus.className = "align-middle";
 
     cellActions.innerHTML = `
-        <button type="button" class="btn btn-warning mt-2" onclick="updateFavPokemon('`+favPokemon.data.name+`')">Update</button>
-        <button type="button" class="btn btn-danger mt-2" onclick="deleteFavPokemon('`+favPokemon.data.name+`')">Delete</button>
+        <button type="button" class="btn btn-warning mt-2" onclick="toggleStatusEdit(${index})">Update</button>
+        <button type="button" class="btn btn-danger mt-2" onclick="deleteFavPokemon('${favPokemon.data.name}')">Delete</button>
     `;
     cellActions.className = "align-middle";
+}
+
+function toggleStatusEdit(index) {
+    const statusSpan = document.getElementById(`pokemonStatus_${index}`);
+    const status = statusSpan.textContent;
+
+    // Replace status span with input field
+    statusSpan.innerHTML = `<input type="text" id="inputPokemonStatus_${index}" class="form-control" value="${status}"/>`;
+
+    // Focus on the input field
+    const inputField = document.getElementById(`inputPokemonStatus_${index}`);
+    inputField.focus();
+
+    // Add event listener for input field blur to update status
+    inputField.addEventListener('blur', () => {
+        const updatedStatus = inputField.value;
+        statusSpan.innerHTML = updatedStatus || 'No status';
+        updateFavPokemon(updatedStatus, index);
+    });
 }
 
 async function loadFavoritePokemonsTable() {
@@ -36,8 +50,8 @@ async function loadFavoritePokemonsTable() {
 
         favPokemonTableBody.innerHTML = '';
 
-        favPokemonList.forEach((favPokemon) => {
-            addPokemonRowToTable(favPokemon, favPokemonTableBody);
+        favPokemonList.forEach((favPokemon, index) => {
+            addPokemonRowToTable(favPokemon, favPokemonTableBody, index);
         });
     } catch (error) {
         console.error("Error", error.message);
